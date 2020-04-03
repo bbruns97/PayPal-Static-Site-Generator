@@ -5,5 +5,34 @@
  */
 
 module.exports = {
-  /* Your site config here */
+    siteMetadata: {
+        title: `Insert title here`,
+    },
+    plugins: [
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/content`,
+            },
+        },
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
+        `gatsby-image`,
+        `gatsby-remark-relative-images`,
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 800,
+                        },
+                    },
+                    `gatsby-remark-copy-linked-files`,
+                 ],
+            },
+        },
+        
+    ],
 }
