@@ -3,7 +3,11 @@ import { Link, graphql } from "gatsby"
 import { css } from "@emotion/core"
 import Layout from "../components/layout"
 import styled from "styled-components"
+import PaypalButton from "../components/paypalButton"
 import ItemThumbnail from "../components/itemThumbnail"
+
+
+
 
 const ThumbnailsWrapper = styled.div`
     width: 100%;
@@ -16,6 +20,7 @@ const ThumbnailsWrapper = styled.div`
 
 export default ({ data }) => {
     console.log(data)
+    
     return (
         <Layout>
 
@@ -23,7 +28,11 @@ export default ({ data }) => {
             {data.allMarkdownRemark.edges.map(({ node }) => (
                 <div key={node.id}>
                     <ItemThumbnail key={node.fields.slug} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid}/>
+                    <div>
+                      <PaypalButton price={node.frontmatter.price}/>
+                    </div>
                 </div>
+                
             ))}
             </ThumbnailsWrapper>
         </Layout>
