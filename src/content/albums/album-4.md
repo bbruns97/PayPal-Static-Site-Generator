@@ -1,6 +1,6 @@
 ---
 title: Album 4
-price: $10.99
+price: 10.99
 image: "./arch.jpg"
 keyword: album
 ---

@@ -1,6 +1,6 @@
 ---
 title: The Social Network
-price: $19.99
+price: 19.99
 image: "./tech.jpg"
 keyword: movie
 ---
