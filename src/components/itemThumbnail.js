@@ -53,7 +53,7 @@ const itemThumbnail = (props) => {
                 <Heading>{props.heading}</Heading>
                 <ImgStyled fluid={props.imageThumb} />
             </LinkStyled>
-            <Price>{props.price}</Price>
+            <Price>${props.price}</Price>
         </ItemThumbnailStyled >
     )
 }
