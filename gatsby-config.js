@@ -6,7 +6,7 @@
 
 module.exports = {
     siteMetadata: {
-        title: `Insert title here`,
+        title: `PayPal Store`,
     },
     plugins: [
         {
