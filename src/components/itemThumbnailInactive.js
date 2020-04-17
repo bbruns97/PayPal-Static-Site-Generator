@@ -4,14 +4,6 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 
-const ItemThumbnailStyled = styled.div`
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-`
 const ItemInactiveThumbnailStyled = styled.div`
     width: 350px;
     display: flex;
@@ -55,20 +47,16 @@ const ImgStyled = styled(Img)`
       }
 `
 
-const itemThumbnail = (props) => {
+const itemThumbnailInactive = (props) => {
     return (
-        <ItemThumbnailStyled>
+        <ItemInactiveThumbnailStyled>
             <LinkStyled to={props.link}>
                 <Heading>{props.heading}</Heading>
                 <ImgStyled fluid={props.imageThumb} />
             </LinkStyled>
             <Price>${props.price}</Price>
-        </ItemThumbnailStyled >
+        </ItemInactiveThumbnailStyled >
     )
 }
 
-
-
-
-
-export default itemThumbnail;
+export default itemThumbnailInactive;

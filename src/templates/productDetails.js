@@ -20,22 +20,26 @@ export default ({ data }) => {
                   <Img class="product_details_img" fluid={post.frontmatter.image.childImageSharp.fluid} />
                 </DetailImgWrapper>
                 <p>{post.frontmatter.price}</p>
-                <label for="product_quantity">Quantity:</label>
-                    <input id={"quantity_"+post.frontmatter.title} type="text" placeholder="Quantity" name="product_quantity" defaultValue={1}></input><br></br>
-
-                    <label for="options_drop_down">Options:</label>
-                    <select id="options_drop_down">
-                      <option value="invalid_option">Select Option</option>
-                      {
-                        (post.frontmatter.options).map((data) =>
-                          <option value={data}>{data}</option>
-                        )
-                      }
-                    </select>
-                    
+                {post.frontmatter.active == true &&
                     <div>
-                      <PaypalButton price={post.frontmatter.price}/>
+                        <label for="product_quantity">Quantity:</label>
+                        <input id={"quantity_" + post.frontmatter.title} type="text" placeholder="Quantity" name="product_quantity" defaultValue={1}></input><br></br>
+
+                        <label for="options_drop_down">Options:</label>
+                        <select id="options_drop_down">
+                            <option value="invalid_option">Select Option</option>
+                            {
+                                (post.frontmatter.options).map((data) =>
+                                    <option value={data}>{data}</option>
+                                )
+                            }
+                        </select>
+
+                        <div>
+                            <PaypalButton price={post.frontmatter.price} />
+                        </div>
                     </div>
+                }
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </div>
         </Layout>
