@@ -29,6 +29,10 @@ export default  class PaypalComponent extends React.Component {
 
       return (
         <div>
+          
+
+
+          
             <form>
          
 

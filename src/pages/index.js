@@ -3,8 +3,8 @@ import { Link, graphql } from "gatsby"
 import { css } from "@emotion/core"
 import Layout from "../components/layout"
 import styled from "styled-components"
-import PaypalButton from "../components/paypalButton"
 import ItemThumbnail from "../components/itemThumbnail"
+import PaypalComponent from "../components/paypalCheckoutOptions"
 
 
 const ThumbnailsWrapper = styled.div`
@@ -15,7 +15,6 @@ const ThumbnailsWrapper = styled.div`
     flex-wrap: wrap;
     padding: 10px;
 `
-
 export default ({ data }) => {
     console.log(data);
     return (
@@ -27,9 +26,7 @@ export default ({ data }) => {
                     <ItemThumbnail key={node.fields.slug} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid} active={node.frontmatter.active}/>
                     {node.frontmatter.active == true &&
                         <div>
-                        <label for="product_quantity">Quantity:</label>
-                        <input id={"quantity_"+node.frontmatter.title} type="text" placeholder="Quantity" name="product_quantity" defaultValue={1}></input><br></br>
-                    
+                     
                         
                         <label for="options_drop_down">Options: </label>
                         <select id="options_drop_down">
@@ -40,10 +37,11 @@ export default ({ data }) => {
                                 )
                             }
                         </select>
-
+ 
                         <div>
-                            <PaypalButton price={node.frontmatter.price} />
-                            </div>
+                          <PaypalComponent  options = { node.frontmatter.options} title = { node.frontmatter.title} paypalInput ={node.frontmatter.price} />
+                         
+                        </div>
                             </div>
                         }
                 </div>
