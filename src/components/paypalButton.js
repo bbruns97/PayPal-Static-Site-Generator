@@ -19,7 +19,7 @@ export default class PaypalButton extends React.Component {
 			console.log("Error!", err);
 		}
 
-		const { title, option, price , amount } = this.props;
+		const { title, options, price , amount } = this.props;
 
 
 		let env = 'sandbox'; // you can set this string to 'production'
