@@ -52,8 +52,8 @@ export default class PaypalButton extends React.Component {
 					"description": "This is the payment transaction description.",
 					"item_list": {
 						"items": [{
-						"name": title,
-						"description": "options will go here",
+						"name": title + " [" + option + "]",
+						"description": "",
 						"quantity": amount,
 						"price": price,
 						"tax": "",

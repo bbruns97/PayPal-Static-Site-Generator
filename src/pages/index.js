@@ -25,25 +25,12 @@ export default ({ data }) => {
                 <div key={node.id}>
                     <ItemThumbnail key={node.fields.slug} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid} active={node.frontmatter.active}/>
                     {node.frontmatter.active == true &&
-                        <div>
-                     
-                        
-                        <label for="options_drop_down">Options: </label>
-                        <select id="options_drop_down">
-                            <option value="invalid_option">No Option</option>
-                            {
-                                (node.frontmatter.options).map((data) =>
-                                    <option value={data}>{data}</option>
-                                )
-                            }
-                        </select>
- 
+                      <div>
                         <div>
                           <PaypalComponent  options = { node.frontmatter.options} title = { node.frontmatter.title} paypalInput ={node.frontmatter.price} />
-                         
                         </div>
-                            </div>
-                        }
+                      </div>
+                    }
                 </div>
                 
             ))}
