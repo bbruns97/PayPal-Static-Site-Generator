@@ -4,8 +4,7 @@ import PaypalButton from "./paypalButton"
 export default  class PaypalComponent extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: '1'};
-      this.selectedOption = "";
+      this.state = {value: '1', selectedOption: ""};
       
   
       this.handleChange = this.handleChange.bind(this);
@@ -17,8 +16,10 @@ export default  class PaypalComponent extends React.Component {
     }
 
     handleOptionChange(event){
-      this.selectedOption = event.target.options[event.target.selectedIndex].text;
-      alert(this.selectedOption);
+      //this.selectedOption = event.target.options[event.target.selectedIndex].text;
+      this.setState({selectedOption: event.target.options[event.target.selectedIndex].text})
+      //alert(this.selectedOption);
+      //this.render();
     }
 
     render() {
@@ -33,7 +34,7 @@ export default  class PaypalComponent extends React.Component {
           
 
 
-          
+            
             <form>
          
             <label for="product_quantity">Quantity:</label>
@@ -52,8 +53,7 @@ export default  class PaypalComponent extends React.Component {
             
             </form>
             <div>
-
-                <PaypalButton price={ paypalInput } title = {title} option = { options } amount = { this.state.value } description={this.selectedOption} />
+                <PaypalButton price={paypalInput} title = {title} option ={this.state.selectedOption}  amount={this.state.value} />
             </div>
 
         </div>
