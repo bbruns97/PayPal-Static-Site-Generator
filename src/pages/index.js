@@ -19,7 +19,9 @@ export default ({ data }) => {
     console.log(data);
     return (
         <Layout>
-
+            <p><a href={data.site.siteMetadata.linksList[0]}>{data.site.siteMetadata.linksList[0]}</a></p>
+            <p><a href={data.site.siteMetadata.linksList[1]}>{data.site.siteMetadata.linksList[1]}</a></p>
+            <p><a href={data.site.siteMetadata.linksList[2]}>{data.site.siteMetadata.linksList[2]}</a></p>
             <ThumbnailsWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
                 <div key={node.id}>
@@ -44,6 +46,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        linksList
       }
     }
     allMarkdownRemark(filter: { frontmatter: { enabled: { eq: true } } }) {
