@@ -3,10 +3,17 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+function links()
+{
+    var fs = require('fs');
+    var textByLine = fs.readFileSync('Input.txt').toString().split("\n");
+    return textByLine;
+}
 
 module.exports = {
     siteMetadata: {
         title: `PayPal Store`,
+        linksList: links(),
     },
     plugins: [
         {
