@@ -28,10 +28,10 @@ export default class PaypalButton extends React.Component {
 		let total = price * amount
 
 		const client = {
-			sandbox:    'AR9KKF3e00OlfoK6HFh_IpEXzlnjgu4PnKfUb0cpQmL9_mNKsY66zkhnrRUsxAPgst2hS5CP2pcqLxTa',
+			sandbox:   	'AR9KKF3e00OlfoK6HFh_IpEXzlnjgu4PnKfUb0cpQmL9_mNKsY66zkhnrRUsxAPgst2hS5CP2pcqLxTa',
 			production: 'YOUR-PRODUCTION-APP-ID',
 		}
-		
+
         return (
             <PaypalExpressBtn env={env} paymentOptions = { { "transactions" : [ 
 				{
