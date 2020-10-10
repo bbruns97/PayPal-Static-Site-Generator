@@ -3,6 +3,8 @@ import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import styled from "styled-components"
+import Footer from "./footer"
+import 'semantic-ui-css/semantic.min.css'
 
 
 const LogoStyled = styled(Img)`
@@ -58,6 +60,7 @@ export default ({ children }) => {
       </NavWrapper>
 
       {children}
+      <Footer />
     </div >
   )
 }
