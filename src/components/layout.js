@@ -4,6 +4,7 @@ import { useStaticQuery, Link, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import styled from "styled-components"
 import Footer from "./footer"
+import Header from "./header"
 import 'semantic-ui-css/semantic.min.css'
 
 
@@ -24,7 +25,6 @@ const NavWrapper = styled.div`
   position: relative;
   display: table;
 `
-
 export default ({ children }) => {
   const data = useStaticQuery(
     graphql`
@@ -32,6 +32,10 @@ export default ({ children }) => {
         site {
           siteMetadata {
             title
+            menuLinks {
+              name
+              link
+            }
           }
         }
 
@@ -47,18 +51,7 @@ export default ({ children }) => {
   )
   return (
     <div css={css`margin: 0 auto; max-width: 700px;`}>
-      <NavWrapper>
-        <Link to={`/`}>
-          <LogoStyled fluid={data.file.childImageSharp.fluid} alt="Logo not loaded." />
-        </Link>
-
-        <Link to={`/`}>
-          <h3 css={css`font-style: normal; background-color: red;`}>
-            {data.site.siteMetadata.title}
-          </h3>
-        </Link>
-      </NavWrapper>
-
+      <Header menuLinks={data.site.siteMetadata.menuLinks} siteTitle={data.site.siteMetadata.title} siteLogo={data.file.childImageSharp.fluid}/>
       {children}
       <Footer />
     </div >
