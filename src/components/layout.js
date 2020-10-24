@@ -51,7 +51,8 @@ export default ({ children }) => {
   )
   return (
     <div css={css`margin: 0 auto; max-width: 700px;`}>
-      <Header menuLinks={data.site.siteMetadata.menuLinks} siteTitle={data.site.siteMetadata.title} siteLogo={data.file.childImageSharp.fluid}/>
+    //need to update to set cartCount equal to variable holding number of items in cart
+      <Header menuLinks={data.site.siteMetadata.menuLinks} siteTitle={data.site.siteMetadata.title} siteLogo={data.file.childImageSharp.fluid} cartCount="0"/>
       {children}
       <Footer />
     </div >

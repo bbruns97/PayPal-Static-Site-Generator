@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import Img from 'gatsby-image';
 import styled from "styled-components"
 import {Segment} from 'semantic-ui-react'
+import ShoppingCartIcon from './ShoppingCartIcon'
 
 const LogoStyled = styled(Img)`
     width: 50px;
@@ -13,7 +14,7 @@ const LogoStyled = styled(Img)`
       }
 `
 
-const Header = ({ siteTitle, menuLinks, siteLogo }) => (
+const Header = ({ siteTitle, menuLinks, siteLogo, cartCount }) => (
     <Segment
     vertical
     style={{
@@ -53,22 +54,33 @@ const Header = ({ siteTitle, menuLinks, siteLogo }) => (
         </h1>
         <div>
           <nav>
-            <ul style={{ display: "flex", flex: 1 }}>
-              {menuLinks.map(link => (
-                <li
-                  key={link.name}
-                  style={{
-                    listStyleType: `none`,
-                    padding: `1rem`,
-                  }}
-                >
-                  <Link style={{ color: `black` }} to={link.link}>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div class="ui compact menu">
+              <div class="ui simple dropdown item">
+                Products
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  {menuLinks.map(link => (
+                    <div class="item"><Link to={link.link}>{link.name}</Link></div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </nav>
+        </div>
+        <div class="shoppingCart"
+            style={{
+                padding: 15
+            }}
+        >
+            <Link
+                to="/shoppingCart"
+                style={{
+                    color: "black",
+                    textDecoration: "none",
+                }}
+            >
+                <ShoppingCartIcon cartCount={cartCount} name="Cart" />
+            </Link>
         </div>
       </div>
     </div>
