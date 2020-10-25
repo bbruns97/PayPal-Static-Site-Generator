@@ -17,6 +17,7 @@ const ThumbnailsWrapper = styled.div`
 `
 
 const Keys = ({ pageContext, data }) => {
+  console.log(data);
   const { key } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   return (
@@ -39,28 +40,7 @@ const Keys = ({ pageContext, data }) => {
     </Layout>
   )
 }
-Keys.propTypes = {
-  pageContext: PropTypes.shape({
-    key: PropTypes.string.isRequired,
-  }),
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-            }),
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
-}
+
 export default Keys
 export const pageQuery = graphql`
   query($key: String) {

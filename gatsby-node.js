@@ -16,8 +16,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    const result = await graphql(`
-    query {
+    return graphql(`
+    {
       allMarkdownRemark {
         edges {
           node {
@@ -32,35 +32,38 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `).then(result => {
+    if (result.errors) {
+        throw result.errors
+    }
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-            path: node.fields.slug,
-            component: path.resolve(`./src/templates/productDetails.js`),
-            context: {
-                // Data passed to context is available
-                // in page queries as GraphQL variables.
-                slug: node.fields.slug,
-            },
+            createPage({
+                path: node.fields.slug,
+                component: path.resolve(`./src/templates/productDetails.js`),
+                context: {
+                    // Data passed to context is available
+                    // in page queries as GraphQL variables.
+                    slug: node.fields.slug,
+                },
+            })
         })
-    })
 
-    const keywordsFound = []
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        node.frontmatter.keyword.forEach(key => {
-            if (keywordsFound.indexOf(key) === -1) {
-                keywordsFound.push(key)
+        const keywordsFound = []
+        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+            if (keywordsFound.indexOf(node.frontmatter.keyword) === -1) {
+                keywordsFound.push(node.frontmatter.keyword)
+                createPage({
+                                path: node.frontmatter.keyword,
+                                component: path.resolve(`./src/templates/Keyword.js`),
+                                context: {
+                                    key: node.frontmatter.keyword,
+                                },
+                            })
             }
         })
-    })
-    categoriesFound.forEach(key => {
-          createPage({
-            path: `/${key}`,
-            component: path.resolve(`./src/templates/Keyword.js`),
-            context: {
-              keyword: key,
-            },
-          })
-        })
-        return null
+
+
+  })
+  return null
+
 }
