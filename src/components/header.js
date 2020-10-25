@@ -14,7 +14,7 @@ const LogoStyled = styled(Img)`
       }
 `
 
-const Header = ({ siteTitle, menuLinks, siteLogo, cartCount }) => (
+const Header = ({ keywords, siteTitle, menuLinks, siteLogo, cartCount }) => (
     <Segment
     vertical
     style={{
@@ -59,9 +59,9 @@ const Header = ({ siteTitle, menuLinks, siteLogo, cartCount }) => (
                 Products
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                  {menuLinks.map(link => (
-                    <div class="item"><Link to={link.link}>{link.name}</Link></div>
-                  ))}
+                  {keywords.map(key => (
+                    <div class="item"><Link to={key}>{key}</Link></div>
+                 ))}
                 </div>
               </div>
             </div>
@@ -97,3 +97,22 @@ Header.defaultProps = {
 }
 
 export default Header
+export const data = graphql`
+  query {
+    allMarkdownRemark(filter: { frontmatter: { enabled: { eq: true } } }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            keyword
+          }
+          fields{
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`

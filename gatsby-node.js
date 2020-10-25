@@ -24,12 +24,15 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+                title
+                keyword
+            }
           }
         }
       }
     }
   `)
-
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
             path: node.fields.slug,
@@ -41,4 +44,23 @@ exports.createPages = async ({ graphql, actions }) => {
             },
         })
     })
+
+    const keywordsFound = []
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        node.frontmatter.keyword.forEach(key => {
+            if (keywordsFound.indexOf(key) === -1) {
+                keywordsFound.push(key)
+            }
+        })
+    })
+    categoriesFound.forEach(key => {
+          createPage({
+            path: `/${key}`,
+            component: path.resolve(`./src/templates/Keyword.js`),
+            context: {
+              keyword: key,
+            },
+          })
+        })
+        return null
 }
