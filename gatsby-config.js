@@ -12,7 +12,7 @@ function links()
 
 module.exports = {
     siteMetadata: {
-        title: `PayPal Store`,
+        title: `Acme Bakery`,
         linksList: links(),
     },
     plugins: [
