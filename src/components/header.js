@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import Img from 'gatsby-image';
 import styled from "styled-components"
 import {Segment} from 'semantic-ui-react'
+import { useCart } from '../../plugins/react-cart/react-cart'
 
 const LogoStyled = styled(Img)`
     width: 50px;
@@ -12,6 +13,15 @@ const LogoStyled = styled(Img)`
         height: 30px;
       }
 `
+
+
+function ReturnTotalItems(){
+  
+  const { totalItems } = useCart()
+
+  return (  <div>{ totalItems } </div> )
+
+}
 
 const Header = ({ siteTitle, menuLinks, siteLogo }) => (
     <Segment
@@ -53,7 +63,9 @@ const Header = ({ siteTitle, menuLinks, siteLogo }) => (
         </h1>
         <div>
           <nav>
+          
             <ul style={{ display: "flex", flex: 1 }}>
+            
               {menuLinks.map(link => (
                 <li
                   key={link.name}
@@ -65,8 +77,18 @@ const Header = ({ siteTitle, menuLinks, siteLogo }) => (
                   <Link style={{ color: `black` }} to={link.link}>
                     {link.name}
                   </Link>
+                 
                 </li>
-              ))}
+                
+              ))
+              
+              }
+               <Link style={{ 
+                 color: `black`,
+                 listStyleType: `none`,
+                 padding: `1rem`,
+                  }}
+                to="/checkout"> Checkout <ReturnTotalItems/></Link>
             </ul>
           </nav>
         </div>

@@ -1,6 +1,12 @@
 import React from 'react';
 import PaypalButton from "./paypalButton"
 
+import Customadd from "./custom-add"
+
+
+
+
+
 export default  class PaypalComponent extends React.Component {
     constructor(props) {
       super(props);
@@ -20,15 +26,20 @@ export default  class PaypalComponent extends React.Component {
       this.setState({selectedOption: event.target.options[event.target.selectedIndex].text})
       //alert(this.selectedOption);
       //this.render();
-    }
+    }   
+      
+  
 
     render() {
+
+      
 
         const { title, options, paypalInput } = this.props;
         var showOptions = true;
         if(this.props.options.length > 0){
           showOptions = false;
         }
+        const id = title + this.state.selectedOption
       return (
         <div>
           
@@ -53,7 +64,9 @@ export default  class PaypalComponent extends React.Component {
             
             </form>
             <div>
-                <PaypalButton price={paypalInput} title = {title} option ={this.state.selectedOption}  amount={this.state.value} />
+              
+            <Customadd price={paypalInput} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value}/>
+                
             </div>
 
         </div>

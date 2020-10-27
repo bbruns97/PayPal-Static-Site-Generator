@@ -5,6 +5,7 @@ import Img from "gatsby-image";
 import styled from "styled-components"
 import PaypalComponent from "../components/paypalCheckoutOptions"
 
+
 const DetailImgWrapper = styled.div`
     width: 60%;
 `
@@ -22,7 +23,10 @@ export default ({ data }) => {
                 <p>{post.frontmatter.price}</p>
                 {post.frontmatter.active == true &&
                   <PaypalComponent  options={post.frontmatter.options} title={post.frontmatter.title} paypalInput={post.frontmatter.price} />
+                  
                 }
+                
+                
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </div>
         </Layout>

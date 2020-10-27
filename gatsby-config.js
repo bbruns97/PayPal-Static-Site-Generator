@@ -34,12 +34,17 @@ module.exports = {
         ],
     },
     plugins: [
+        
+            { resolve: `react-cart` } ,
+            
+          
         {
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/src/content`,
             },
         },
+
         {
             resolve: `gatsby-source-filesystem`,
             options: {
