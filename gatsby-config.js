@@ -12,26 +12,8 @@ function links()
 
 module.exports = {
     siteMetadata: {
-        title: `PayPal Store`,
+        title: `Acme Bakery`,
         linksList: links(),
-        menuLinks: [ 
-            { 
-                name: `Cakes`,
-                link: `/cakes`,
-            },
-            { 
-                name: `Cookies`,
-                link: `/cookies`,
-            },
-            { 
-                name: `Cupcakes`,
-                link: `/cupcakes`,
-            },
-            { 
-                name: `Pasteries`,
-                link: `/pasteries`,
-            },
-        ],
     },
     plugins: [
         

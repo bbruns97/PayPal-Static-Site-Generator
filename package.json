@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "gatsby-paypal-static-site-generator",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A eccommerce static site generator using paypal and Gatsby",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {

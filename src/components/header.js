@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import styled from "styled-components"
 import {Segment} from 'semantic-ui-react'
 import { useCart } from '../../plugins/react-cart/react-cart'
+import ShoppingCartIcon from './ShoppingCartIcon'
 
 const LogoStyled = styled(Img)`
     width: 50px;
@@ -19,11 +20,12 @@ function ReturnTotalItems(){
   
   const { totalItems } = useCart()
 
-  return (  <div>{ totalItems } </div> )
+  return (`${totalItems}`)
 
 }
 
-const Header = ({ siteTitle, menuLinks, siteLogo }) => (
+
+const Header = ({ keywords, siteTitle, menuLinks, siteLogo, cartCount }) => (
     <Segment
     vertical
     style={{
@@ -63,34 +65,33 @@ const Header = ({ siteTitle, menuLinks, siteLogo }) => (
         </h1>
         <div>
           <nav>
-          
-            <ul style={{ display: "flex", flex: 1 }}>
-            
-              {menuLinks.map(link => (
-                <li
-                  key={link.name}
-                  style={{
-                    listStyleType: `none`,
-                    padding: `1rem`,
-                  }}
-                >
-                  <Link style={{ color: `black` }} to={link.link}>
-                    {link.name}
-                  </Link>
-                 
-                </li>
-                
-              ))
-              
-              }
-               <Link style={{ 
-                 color: `black`,
-                 listStyleType: `none`,
-                 padding: `1rem`,
-                  }}
-                to="/checkout"> Checkout <ReturnTotalItems/></Link>
-            </ul>
+            <div class="ui compact menu">
+              <div class="ui simple dropdown item">
+                Products
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  {keywords.map(key => (
+                    <div class="item"><Link to={key}>{key}</Link></div>
+                 ))}
+                </div>
+              </div>
+            </div>
           </nav>
+        </div>
+        <div class="shoppingCart"
+            style={{
+                padding: 15
+            }}
+        >
+            <Link
+                to="/checkout"
+                style={{
+                    color: "black",
+                    textDecoration: "none",
+                }}
+            >
+                <ShoppingCartIcon cartCount={ReturnTotalItems()} name="Cart" />
+            </Link>
         </div>
       </div>
     </div>
@@ -107,3 +108,22 @@ Header.defaultProps = {
 }
 
 export default Header
+export const data = graphql`
+  query {
+    allMarkdownRemark(filter: { frontmatter: { enabled: { eq: true } } }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            keyword
+          }
+          fields{
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`

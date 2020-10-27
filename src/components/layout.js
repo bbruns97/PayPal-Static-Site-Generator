@@ -32,13 +32,19 @@ export default ({ children }) => {
         site {
           siteMetadata {
             title
-            menuLinks {
-              name
-              link
-            }
           }
         }
-
+        allMarkdownRemark(filter: { frontmatter: { enabled: { eq: true } } }) {
+            totalCount
+            edges {
+                node {
+                    id
+                    frontmatter {
+                        keyword
+                    }
+                }
+            }
+        }
         file(relativePath: {eq: "logo.jpg"}) {
           childImageSharp {
             fluid(maxWidth: 100, maxHeight: 100){
@@ -49,9 +55,15 @@ export default ({ children }) => {
       }
     `
   )
+  const keywordsFound = []
+  data.allMarkdownRemark.edges.forEach(({ node }) => {
+          if (keywordsFound.indexOf(node.frontmatter.keyword) === -1) {
+              keywordsFound.push(node.frontmatter.keyword)
+          }
+      })
   return (
     <div css={css`margin: 0 auto; max-width: 700px;`}>
-      <Header menuLinks={data.site.siteMetadata.menuLinks} siteTitle={data.site.siteMetadata.title} siteLogo={data.file.childImageSharp.fluid}/>
+      <Header keywords={keywordsFound} siteTitle={data.site.siteMetadata.title} siteLogo={data.file.childImageSharp.fluid} cartCount="0"/>
       {children}
       <Footer />
     </div >
