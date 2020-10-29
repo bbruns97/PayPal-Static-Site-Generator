@@ -13,7 +13,7 @@ function Returntotal(){
   
   const { cartTotal } = useCart()
 
-  return ( <div> { cartTotal } </div> )
+  return ( <span >{ cartTotal }</span > )
 
 }
 
@@ -21,7 +21,7 @@ const CheckoutPage = () => (
   <Layout>
     <h1>Cart</h1>
     <Cart />
-    Total is :  <Returntotal></Returntotal>
+    Total is : $<Returntotal></Returntotal>
     
   </Layout>
 )

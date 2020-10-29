@@ -55,14 +55,36 @@ const ImgStyled = styled(Img)`
       }
 `
 
+
+
+
+
 const itemThumbnail = (props) => {
+
+
+    var pricesString = ''
+    
+    for (var i in props.price )
+    {
+        pricesString = pricesString + props.options[i] +' = $' + props.price[i] + " ";
+    }
+    
+
+
+      
+
     return (
         <ItemThumbnailStyled>
             <LinkStyled to={props.link}>
                 <Heading>{props.heading}</Heading>
                 <ImgStyled fluid={props.imageThumb} />
             </LinkStyled>
-            <Price>${props.price}</Price>
+            <Price>
+                
+            {pricesString}
+        
+            
+            </Price>
         </ItemThumbnailStyled >
     )
 }

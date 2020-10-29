@@ -19,10 +19,10 @@ export default function Customadd(props)  {
         return (
            
            <div>
-            <Link to="/checkout">
+            
             <button onClick={() => addItem( product,  product.amount )}>Add to Cart</button>
             
-            </Link>
+            
             </div>
         )   
 
