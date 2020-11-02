@@ -1,19 +1,20 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import {Segment, Container, Grid, List, Header} from 'semantic-ui-react'
+import GatsbyConfig from "../../gatsby-config"
 
 const twitterLink = (
-  <a href="https://twitter.com/parmsang" alt="twitter link">
+  <a href={GatsbyConfig.siteMetadata.twitterLink} alt="twitter link">
     Twitter
   </a>
 )
 const facebookLink = (
-  <a href="https://facebook.com/" alt="facebook link">
+  <a href={GatsbyConfig.siteMetadata.facebookLink} alt="facebook link">
     Facebook
   </a>
 )
 const instagramLink = (
-  <a href="https://instagram.com/" alt="instagram link">
+  <a href={GatsbyConfig.siteMetadata.instagramLink} alt="instagram link">
     Instagram
   </a>
 )
@@ -37,16 +38,16 @@ const Footer = () => (
             <List>
                 <List.Item>
                     <List.Icon name='marker' />
-                    <List.Content>9852 N Acme Way Tempe, AZ 85281</List.Content>
+                    <List.Content>{GatsbyConfig.siteMetadata.address}</List.Content>
                 </List.Item>
                 <List.Item>
                     <List.Icon name='phone' />
-                    <List.Content>(480)-453-8754</List.Content>
+                    <List.Content>{GatsbyConfig.siteMetadata.phoneNumber}</List.Content>
                 </List.Item>
                 <List.Item>
                      <List.Icon name='mail' />
                     <List.Content>
-                         <a href='mailto:mailto:john@example.com'>bakery@example.com</a>
+                         <a href='mailto:mailto:john@example.com'>{GatsbyConfig.siteMetadata.email}</a>
                      </List.Content>
                  </List.Item>
             </List>
@@ -58,10 +59,22 @@ const Footer = () => (
                 <List.Content><i>Mon</i>: Closed</List.Content>
               </List.Item>
               <List.Item>
-                <List.Content><i>Tues-Fri</i>: 5:00 AM - 4:30 PM</List.Content>
+                <List.Content><i>Tues</i>: 5:00 AM - 4:30 PM</List.Content>
               </List.Item>
               <List.Item>
-                  <List.Content><i>Sat-Sun</i>: 7:00 AM - 2:00 PM</List.Content>
+                <List.Content><i>Wed</i>: 5:00 AM - 4:30 PM</List.Content>
+              </List.Item>
+              <List.Item>
+                <List.Content><i>Thurs</i>: 5:00 AM - 4:30 PM</List.Content>
+              </List.Item>
+              <List.Item>
+                <List.Content><i>Fri</i>: 5:00 AM - 4:30 PM</List.Content>
+              </List.Item>
+              <List.Item>
+                  <List.Content><i>Sat</i>: 7:00 AM - 2:00 PM</List.Content>
+              </List.Item>
+              <List.Item>
+                  <List.Content><i>Sun</i>: 7:00 AM - 2:00 PM</List.Content>
               </List.Item>
             </List>
           </Grid.Column>
