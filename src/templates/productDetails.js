@@ -22,9 +22,9 @@ export default ({ data }) => {
                 </DetailImgWrapper>
                 <p>{post.frontmatter.price}</p>
                 {post.frontmatter.active == true &&
-                  <PaypalComponent  options={post.frontmatter.options} title={post.frontmatter.title} paypalInput={post.frontmatter.price} />
+                  <PaypalComponent  options={post.frontmatter.options} title={post.frontmatter.title} price={post.frontmatter.price} />
                   
-                }
+}
                 
                 
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -53,3 +53,6 @@ export const query = graphql`
     }
   }
 `
+/*
+
+*/
