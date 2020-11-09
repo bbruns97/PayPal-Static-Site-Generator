@@ -20,7 +20,7 @@ export default function Customadd(props)  {
            
            <div>
             
-            <button onClick={() => addItem( product,  product.amount )}>Add to Cart</button>
+            <button style={{width: 250, height: 40, borderRadius: 0, outline: 'none', border: 'none', color: 'white', backgroundColor: 'black', fontWeight: 'bold', fontSize: 16, cursor: 'pointer'}} onClick={() => addItem( product,  product.amount )}>ADD TO CART</button>
             
             
             </div>

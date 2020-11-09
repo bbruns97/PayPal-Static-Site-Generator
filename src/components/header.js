@@ -37,7 +37,7 @@ const Header = ({ keywords, siteTitle, menuLinks, siteLogo, cartCount }) => (
       <div
         style={{
           margin: "0 auto",
-          maxWidth: 1200,
+          maxWidth: "95%",
           display: "flex",
           justifyItems: "space-between",
           alignItems: "center",
@@ -50,9 +50,9 @@ const Header = ({ keywords, siteTitle, menuLinks, siteLogo, cartCount }) => (
               textDecoration: "none",
             }}
           >
-              <LogoStyled fluid={siteLogo} alt="Logo not loaded." />
+              <LogoStyled fluid={siteLogo} style={{width: 80}} alt="Logo not loaded." />
               </Link>
-        <h1 style={{ margin: 0, flex: 1 }}>
+        <h1 style={{ margin: 0, flex: 1, paddingLeft: 0, fontSize: 22 }}>
         <Link
             to="/"
             style={{
@@ -66,12 +66,12 @@ const Header = ({ keywords, siteTitle, menuLinks, siteLogo, cartCount }) => (
         <div>
           <nav>
             <div class="ui compact menu">
-              <div class="ui simple dropdown item">
-                Products
+              <div class="ui simple dropdown item" style={{fontWeight: "bold"}}>
+                Categories
                 <i class="dropdown icon"></i>
                 <div class="menu">
                   {keywords.map(key => (
-                    <div class="item"><Link to={key}>{key}</Link></div>
+                    <div class="item"><Link style={{color:"black", fontWeight: "bold"}} to={key}>{key}</Link></div>
                  ))}
                 </div>
               </div>
