@@ -6,14 +6,16 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import ItemThumbnail from "../components/itemThumbnail"
 import PaypalComponent from "../components/paypalCheckoutOptions"
+import {Header} from 'semantic-ui-react'
 
 const ThumbnailsWrapper = styled.div`
-    width: 100%;
+    max-width: 800px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
     padding: 10px;
+    margin: auto;
 `
 
 const Keys = ({ pageContext, data }) => {
@@ -21,7 +23,8 @@ const Keys = ({ pageContext, data }) => {
   const { key } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   return (
-    <Layout>
+    <Layout style={{width: 'fit-content(20em)'}}>
+        <Header className='products_header' as="h2" content='PRODUCTS' style={{fontSize: 35, maxWidth: 725, margin: '20px auto 0 auto', textAlign: 'center'}}  />
         <ThumbnailsWrapper>
             {edges.map(({ node }) => (
                 <div key={node.id}>
