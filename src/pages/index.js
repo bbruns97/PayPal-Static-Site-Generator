@@ -7,7 +7,6 @@ import ItemThumbnail from "../components/itemThumbnail"
 import PaypalComponent from "../components/paypalCheckoutOptions"
 import {Header} from 'semantic-ui-react'
 
-
 const ThumbnailsWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -17,14 +16,14 @@ const ThumbnailsWrapper = styled.div`
     padding: 10px;
 `
 
-
-
 export default ({ data }) => {
     console.log(data);
     return (
-        <Layout>
-            <Header as="h2" content='PRODUCTS' style={{fontSize: 45, paddingLeft: 40}}  />
-            <ThumbnailsWrapper>
+        <Layout style={{width: 'fit-content(20em)'}}>
+          
+            <Header className='products_header' as="h2" content='PRODUCTS' style={{fontSize: 35, maxWidth: 725, margin: '20px auto 0 auto', textAlign: 'center'}}  />
+            <ThumbnailsWrapper style={{margin: '0 auto', maxWidth: 775}}>
+              
             {data.allMarkdownRemark.edges.map(({ node }) => (
 
                 <div key={node.id}>
