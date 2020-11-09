@@ -1,20 +1,23 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import {Segment, Container, Grid, List, Header} from 'semantic-ui-react'
+import GatsbyConfig from "../../gatsby-config"
+import pplogo from "../assets/pp.png"
+import sitelogo from "../images/logo.jpg"
 
 const twitterLink = (
-  <a href="https://twitter.com/parmsang" alt="twitter link">
-    Twitter
+  <a href={GatsbyConfig.siteMetadata.twitterLink} alt="twitter link">
+    
   </a>
 )
 const facebookLink = (
-  <a href="https://facebook.com/" alt="facebook link">
-    Facebook
+  <a href={GatsbyConfig.siteMetadata.facebookLink} alt="facebook link">
+    
   </a>
 )
 const instagramLink = (
-  <a href="https://instagram.com/" alt="instagram link">
-    Instagram
+  <a href={GatsbyConfig.siteMetadata.instagramLink} alt="instagram link">
+    
   </a>
 )
 
@@ -33,60 +36,86 @@ const Footer = () => (
       <Grid stackable >
         <Grid.Row >
           <Grid.Column width={5}>
-            <Header as="h4" content="Contact Information" />
+            <Header as="h4" content="CONTACT INFORMATION" style={{fontSize: 20}} />
             <List>
-                <List.Item>
-                    <List.Icon name='marker' />
-                    <List.Content>9852 N Acme Way Tempe, AZ 85281</List.Content>
+                <List.Item style={{marginBottom: 10}}>
+                    <List.Icon name='marker' style={{fontSize: 16}}/>
+                    <List.Content style={{color: "#777777", fontSize: 16}}>{GatsbyConfig.siteMetadata.address}</List.Content>
+                </List.Item>
+                <List.Item style={{marginBottom: 10}}>
+                    <List.Icon name='phone' style={{fontSize: 16}} />
+                    <List.Content style={{color: "#777777", fontSize: 16}}>{GatsbyConfig.siteMetadata.phoneNumber}</List.Content>
                 </List.Item>
                 <List.Item>
-                    <List.Icon name='phone' />
-                    <List.Content>(480)-453-8754</List.Content>
-                </List.Item>
-                <List.Item>
-                     <List.Icon name='mail' />
-                    <List.Content>
-                         <a href='mailto:mailto:john@example.com'>bakery@example.com</a>
+                     <List.Icon name='mail' style={{fontSize: 16}} />
+                    <List.Content style={{color: "#777777", fontSize: 16}}>
+                         <a href='mailto:mailto:john@example.com'>{GatsbyConfig.siteMetadata.email}</a>
                      </List.Content>
                  </List.Item>
             </List>
+            <br></br>
           </Grid.Column>
+          
           <Grid.Column width={5}>
-            <Header as="h4" content="Hours of Operation" />
+            <Header as="h4" content="HOURS OF OPERATION" style={{fontSize: 20}} />
             <List>
-              <List.Item>
-                <List.Content><i>Mon</i>: Closed</List.Content>
+              <List.Item style={{marginBottom: 10}}>
+                <List.Content style={{color: "#777777", fontSize: 16}}>Monday: Closed</List.Content>
               </List.Item>
-              <List.Item>
-                <List.Content><i>Tues-Fri</i>: 5:00 AM - 4:30 PM</List.Content>
+              <List.Item style={{marginBottom: 10}}>
+                <List.Content style={{color: "#777777", fontSize: 16}}>Tuesday: 5:00 AM - 4:30 PM</List.Content>
               </List.Item>
-              <List.Item>
-                  <List.Content><i>Sat-Sun</i>: 7:00 AM - 2:00 PM</List.Content>
+              <List.Item style={{marginBottom: 10}}>
+                <List.Content style={{color: "#777777", fontSize: 16}}>Wednesday: 5:00 AM - 4:30 PM</List.Content>
+              </List.Item>
+              <List.Item style={{marginBottom: 10}}>
+                <List.Content style={{color: "#777777", fontSize: 16}}>Thursday: 5:00 AM - 4:30 PM</List.Content>
+              </List.Item>
+              <List.Item style={{marginBottom: 10}}>
+                <List.Content style={{color: "#777777", fontSize: 16}}>Friday: 5:00 AM - 4:30 PM</List.Content>
+              </List.Item>
+              <List.Item style={{marginBottom: 10}}>
+                  <List.Content style={{color: "#777777", fontSize: 16}}>Saturday: 7:00 AM - 2:00 PM</List.Content>
+              </List.Item>
+              <List.Item style={{marginBottom: 10}}>
+                  <List.Content style={{color: "#777777", fontSize: 16}}>Sunday: 7:00 AM - 2:00 PM</List.Content>
               </List.Item>
             </List>
+            <br></br>
           </Grid.Column>
+          
           <Grid.Column width={5}>
-            <Header as="h4">Stay in touch</Header>
-            <p>
+            <Header as="h4" style={{fontSize: 20}}>STAY CONNECTED</Header>
+            <p style={{color: "#777777", fontSize: 16, marginBottom: 20}}>
               Follow us and connect on social media
             </p>
             <List horizontal style={{display: 'flex'}}>
-              <List.Item
+              <a href={GatsbyConfig.siteMetadata.twitterLink} alt="twitter link">
+                <List.Item
                 icon="twitter"
-                style={{display: 'flex'}}
+                style={{display: 'flex', fontSize: 30, marginRight: 10, color: "#1DA1F2"}}
                 content={twitterLink}
               />
-              <List.Item
-                icon="facebook"
-                style={{display: 'flex'}}
-                content={facebookLink}
-              />
-              <List.Item
+              </a>
+              <a href={GatsbyConfig.siteMetadata.instagramLink} alt="instagram link">
+                <List.Item
                 icon="instagram"
-                style={{display: 'flex'}}
+                style={{display: 'flex', fontSize: 30, marginRight: 10, color: "#bc2a8d"}}
                 content={instagramLink}
               />
+              </a>
+              <a href={GatsbyConfig.siteMetadata.facebookLink} alt="facebook link">
+                <List.Item
+                icon="facebook"
+                style={{display: 'flex', fontSize: 30, marginRight: 10, color: '#3b5998'}}
+                content={facebookLink}
+              />
+              </a>
             </List>
+            <br></br>
+            <Header as="h4" style={{fontSize: 20}}>POWERED BY</Header>
+            <img src={pplogo} style={{width: 70}}></img>
+            <br></br>
           </Grid.Column>
         </Grid.Row>
       </Grid>

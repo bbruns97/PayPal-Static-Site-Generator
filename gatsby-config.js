@@ -3,17 +3,16 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-function links()
-{
-    var fs = require('fs');
-    var textByLine = fs.readFileSync('Input.txt').toString().split("\n");
-    return textByLine;
-}
 
 module.exports = {
     siteMetadata: {
         title: `Acme Bakery`,
-        linksList: links(),
+        address: `9852 N Acme Way Tempe, AZ 85281`,
+        phoneNumber: `(480)-453-8754`,
+        email: `bakery@example.com`,
+        twitterLink: `https://twitter.com/`,
+        facebookLink: `https://facebook.com/`,
+        instagramLink: `https://instagram.com/`
     },
     plugins: [
         
