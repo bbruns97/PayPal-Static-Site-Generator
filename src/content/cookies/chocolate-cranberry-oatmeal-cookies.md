@@ -1,5 +1,5 @@
 ---
-title: Chocolate cranberry oatmeal cookies
+title: Chocolate Cranberry Oatmeal Cookies
 price: [2.50, 24.00]
 image: "./chocolate-cranberry-oatmeal-cookies.jpg"
 keyword: Cookie

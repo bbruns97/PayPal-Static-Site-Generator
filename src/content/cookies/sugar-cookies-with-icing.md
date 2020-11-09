@@ -1,5 +1,5 @@
 ---
-title: Sugar cookies with icing
+title: Sugar Cookies with Icing
 price: [2.50, 24.00]
 image: "./sugar-cookies-with-icing.jpg"
 keyword: Cookie
