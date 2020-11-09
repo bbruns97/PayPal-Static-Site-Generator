@@ -18,14 +18,14 @@ const ThumbnailsWrapper = styled.div`
     margin: auto;
 `
 
-
-
 export default ({ data }) => {
     console.log(data);
     return (
-        <Layout>
-            <h1 class="ui center aligned header" >PRODUCTS </h1>
+        <Layout style={{width: 'fit-content(20em)'}}>
+
+            <Header className='products_header' as="h2" content='PRODUCTS' style={{fontSize: 35, maxWidth: 725, margin: '20px auto 0 auto', textAlign: 'center'}}  />
             <ThumbnailsWrapper>
+
             {data.allMarkdownRemark.edges.map(({ node }) => (
 
                 <div key={node.id}>
