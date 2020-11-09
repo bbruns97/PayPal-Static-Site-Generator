@@ -16,7 +16,24 @@ function test(){
 }
 
 export default ({ data }) => {
+
+
+  
+  
+
+
     const post = data.markdownRemark;
+
+    var pricesString = ''
+    
+    for (var i in post.frontmatter.price )
+    {
+        pricesString = pricesString + post.frontmatter.options[i] +' = $' + post.frontmatter.price[i] + " ";
+    }
+    
+
+
+
     var pp_options = <PaypalComponent options={post.frontmatter.options} title={post.frontmatter.title} price={post.frontmatter.price} />
   
 
@@ -65,7 +82,7 @@ export default ({ data }) => {
                       <Header as="h4" content="PRICE" style={{fontSize: 30}} />
                       <p>QUANTITY AND OPTION MAY AFFECT YOUR TOTAL</p>
                       <br></br>
-                      <p style={{color: 'black', fontSize: 24}}><span style={{color: 'green'}}>$</span>{pp_options.props.price} <span style={{color: 'green'}}>USD</span></p>
+                      <p style={{color: 'black', fontSize: 24}}><span style={{color: 'green'}}>$</span>{pricesString} <span style={{color: 'green'}}>USD</span></p>
                     </List.Content>
                 </List.Item>
             </List>
