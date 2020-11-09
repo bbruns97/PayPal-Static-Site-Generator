@@ -25,16 +25,6 @@ const ItemInactiveThumbnailStyled = styled.div`
     filter: grayscale(100%);
 `
 
-const Heading = styled.h3`
-    font-size: 2em;
-    padding: 5px;
-    font-weight: 900;
-    text-align: center;
-    width: 100%;
-    min-height: 85px;
-    margin: auto;    
-`
-
 const LinkStyled = styled(Link)`
     width: 100%;
     box-shadow: none;

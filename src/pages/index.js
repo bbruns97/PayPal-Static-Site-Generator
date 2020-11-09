@@ -9,12 +9,13 @@ import {Header} from 'semantic-ui-react'
 
 
 const ThumbnailsWrapper = styled.div`
-    width: 100%;
+    max-width: 800px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
     padding: 10px;
+    margin: auto;
 `
 
 
@@ -23,7 +24,7 @@ export default ({ data }) => {
     console.log(data);
     return (
         <Layout>
-            <Header as="h2" content='PRODUCTS' style={{fontSize: 45, paddingLeft: 40}}  />
+            <h1 class="ui center aligned header" >PRODUCTS </h1>
             <ThumbnailsWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
 

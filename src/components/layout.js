@@ -24,6 +24,7 @@ const NavWrapper = styled.div`
   position: relative;
   display: table;
 `
+
 export default ({ children }) => {
   const data = useStaticQuery(
     graphql`
