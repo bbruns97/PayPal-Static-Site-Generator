@@ -7,6 +7,7 @@ import {Segment} from 'semantic-ui-react'
 import { useCart } from '../../plugins/react-cart/react-cart'
 import ShoppingCartIcon from './ShoppingCartIcon'
 
+
 const LogoStyled = styled(Img)`
     width: 50px;
     height: 50px;

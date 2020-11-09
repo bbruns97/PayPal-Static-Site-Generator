@@ -3,7 +3,8 @@ import styled from "styled-components"
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import PaypalComponent from "../components/paypalCheckoutOptions"
-import {Segment, Container, Grid, List, Header, Image} from 'semantic-ui-react'
+import {Header} from 'semantic-ui-react'
+
 
 
 const ItemThumbnailStyled = styled.div`

@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import ItemThumbnail from "../components/itemThumbnail"
 import PaypalComponent from "../components/paypalCheckoutOptions"
-
+import {Header} from 'semantic-ui-react'
 
 
 const ThumbnailsWrapper = styled.div`
@@ -23,7 +23,7 @@ export default ({ data }) => {
     console.log(data);
     return (
         <Layout>
-
+            <Header as="h2" content='PRODUCTS' style={{fontSize: 45, paddingLeft: 40}}  />
             <ThumbnailsWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
 
