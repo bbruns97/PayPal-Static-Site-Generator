@@ -7,6 +7,7 @@ import ItemThumbnail from "../components/itemThumbnail"
 import PaypalComponent from "../components/paypalCheckoutOptions"
 
 
+
 const ThumbnailsWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -15,24 +16,21 @@ const ThumbnailsWrapper = styled.div`
     flex-wrap: wrap;
     padding: 10px;
 `
+
+
+
 export default ({ data }) => {
     console.log(data);
     return (
         <Layout>
+
             <ThumbnailsWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
+
                 <div key={node.id}>
-                    <ItemThumbnail key={node.fields.slug} options={node.frontmatter.options} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid} active={node.frontmatter.active}/>
-                    {node.frontmatter.active === true &&
-                      <div>
-                        <div>
-                          <PaypalComponent  options = { node.frontmatter.options} title = { node.frontmatter.title} price ={node.frontmatter.price} />
-                          
-                        </div>
-                      </div>
-                    }
+                    <ItemThumbnail exc={ node.excerpt } key={node.fields.slug} options={node.frontmatter.options} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid} active={node.frontmatter.active} />
                 </div>
-                
+
             ))}
             </ThumbnailsWrapper>
         </Layout>

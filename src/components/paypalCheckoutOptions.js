@@ -5,6 +5,8 @@ import Customadd from "./custom-add"
 
 
 
+
+
 export default  class PaypalComponent extends React.Component {
     
     constructor(props) {
@@ -53,22 +55,22 @@ export default  class PaypalComponent extends React.Component {
 
             
             <form>
-         
-            <label for="product_quantity"></label>
-            <input style={{fontWeight: "bold",width: "110px",height: 40, border:"1px solid black", borderRadius: 3, paddingLeft: 10}} id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
-            <br></br>
-            
-            <label for="options_drop_down" hidden={showOptions}></label>
-                        <select style={{height: 40, width: 200, border: "1px solid black", borderRadius: 3, fontWeight: 'bold', paddingLeft: 10, cursor: 'pointer'}} id="options_drop_down" onChange={this.handleOptionChange} hidden={showOptions}>
-                            
+
+            <label for="options_drop_down" hidden={showOptions} ></label>
+                        <select style={{height: 40, width: 200, border: "1px solid lightgray", borderRadius: 3, fontWeight: 'bold', paddingLeft: 10, cursor: 'pointer'}} id="options_drop_down" onChange={this.handleOptionChange} hidden={showOptions}>
                             {
-                                
+
                                 (this.props.options).map((data) =>
-                                    <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data + " - $" + price[counter]}</option>     
-                                                            
+                                    <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data + " - $" + price[counter]}</option>
+
                                 )
                             }
                         </select>
+            <br></br>
+            <br></br>
+            <label for="product_quantity"></label>
+            <input style={{fontWeight: "bold",width: "110px",height: 40, border:"1px solid lightgray", borderRadius: 3, paddingLeft: 10}} id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
+
             
             </form>
             <div>

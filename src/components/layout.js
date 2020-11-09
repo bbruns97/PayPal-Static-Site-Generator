@@ -15,7 +15,6 @@ const LogoStyled = styled(Img)`
         height: 30px;
       }
 `
-
 const NavWrapper = styled.div`
   height: auto;
   width: 1917px;
