@@ -71,7 +71,7 @@ const Header = ({ keywords, siteTitle, menuLinks, siteLogo, cartCount }) => (
                 <i class="dropdown icon"></i>
                 <div class="menu">
                   {keywords.map(key => (
-                    <div class="item"><Link to={key}>{key}</Link></div>
+                    <Link to={key}><div class="item">{key}</div></Link>
                  ))}
                 </div>
               </div>
