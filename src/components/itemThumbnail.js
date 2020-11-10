@@ -72,6 +72,8 @@ const itemThumbnail = (props) => {
         <ItemThumbnailStyled>
             <LinkStyled to={props.link}>
                 <ImgStyled fluid={props.imageThumb} />
+                
+            </LinkStyled>
                 <ItemThumbnailInfo>
                     <Header as="h4" content={props.heading} style={{fontSize: 25, fontFamily: "sans-serif"}} />
                     <div style={{color: "#444", fontSize: 16}} dangerouslySetInnerHTML={{ __html: props.exc }} />
@@ -84,7 +86,6 @@ const itemThumbnail = (props) => {
                         </div>
                     }
                 </ItemThumbnailInfo>
-            </LinkStyled>
         </ItemThumbnailStyled >
     )
 }
