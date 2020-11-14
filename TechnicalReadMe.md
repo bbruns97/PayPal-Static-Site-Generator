@@ -1,125 +1,275 @@
 # PayPal-Static-Site-Generator
-
-Outputs an static ecommerce website's HTML file to be hosted. 
-
->Developed by: Misha Zelechowski, Shaun Xiong, Brian Bruns, Connor Wardell, Sonny Huynh
-
-Outputs an static ecommerce website's HTML file to be hosted.
+Provides Gatsby components and plugins which can be used to create a static, ecommerce website's HTML files.
 >Developed by: Brian Bruns, Connor Wardell, Misha Zelechowski, Shaun Xiong, Sonny Huynh
 
 ## Introduction
-This 'technical' readme is for developers who want to understand more about what this plugin is doing behind the scenes.
+This 'technical' readme is for developers who want to understand more about what this plugin is doing and how to use it.
 
-This plugin is intended to help small business owners or individual sellers create a website which does not need to rely on server hosting besides the initial hosting of the outputted HTML file.
+This plugin is intended to help small business owners or individual sellers create a website which does not need to rely on database hosting and a committed developer to update and change the website's content.
+
+This plugin contains an example website output which showcases how a developer can use our plugins and components to create their own website. The example website may even be used as is to limit development time.
 
 ### What does this plugin do?
+This plugin, "PayPal-Static-Site-Generator", contains our developed Gatsby components and sub-plugins which may be used to generate specific features onto a Gatsby generated HTML document.
 
-This plugin, "PayPal-Static-Site-Generator", outputs a static ecommerce website's html document for hosting using several 'single task'-focused sub-plugins.
+> Example components and plugins features:
+>- Generating site framing using the "layout.js" component.
+>- Creating a working shopping cart system using the "cart.js" component and the "react-cart" plugin.
+>- Generating a PayPal payment option using the "paypalButton.js" component.
 
-> Example sub-plugins:
->- Creating a navigation bar
->- Creating a home page
->- Creating a products page
-
-This plugin does not make use of any external server services which allow things like inventory management. If a website owner wishes to update their website, they will have to update their filesystem and use this plugin to output a new HTML file to be hosted.
-
-#### Input
-This plugin takes a directory which has a specific format as an input.
-
-#### Output
-This plugin creates and outputs a static HTML file which can be hosted by normal means.
-
-### What does this plugin NOT do?
-This plugin does not:
->- Host the outputted website.
->- Augment an existing website.
-
-
-## Current Implementation
-
-### PayPal Integration
-
-This plugin, "PayPal-Static-Site-Generator", contains a broad array of sub-plugins which may be used to generate specific features onto a Gatsby generated HTML document.
-
-> Example sub-plugins:
->- Generating a navigation bar
->- Generating a home page
->- Generating a products page
->- Generating a PayPal payment button
-
-This plugin does not make use of any external server services which allow things like inventory management. If a website owner wishes to update their website, they will have to update their filesystem and use this plugin to output a new HTML file to be hosted.
+This plugin does not make use of a server-hosted database to store items and information. Instead, this plugin makes use of GraphQL to query data from a filesystem. This create a limitation on certain actions like implementing inventory management. To update a website created through this plugin, a website-owner will need to edit their filesystem and make use of this plugin to output new static HTML files to replace the old ones.
 
 As released, this plugin contains an example website built through Gatsby using its own sub-plugins. This example website serves two purposes: showcasing the uses and ability of the plugin and being a useable template for developers who do not wish to design their own website.
   
-### Broad functionalities of example website
-Makes use of sub-plugins to generate individual pieces of an example website which will interact among each other. The outputted example website pulls from a markdown filesystem and allows for checkout and payment.
+### Broad functionalities of the plugin
+Makes use of components and sub-plugins to generate individual pieces of a website which will interact among each other. The outputted website pulls from a markdown filesystem and supports: site navigation, site headers and footers, image querying, shopping carts, and checkout through PayPal.
 
-#### Input of example website
-This plugin takes a directory which has a specific format as an input.
+#### Input of the plugin
+This plugin makes use of a markdown filesystem which will need to be filled with content that will populate the outputted website. Things like website logos, store items, and images can be interacted with using our developed components and sub-plugins.
 
-#### Output of example website
-This plugin creates and outputs a static HTML file which can be hosted by normal means.
-  
-## Plugins
-### 'header'
-Header details
+#### Output of the plugin
+This plugin creates HTML files that contain features generated by components and sub-plugins that will pull website content from a file system. Each page will be created individually and will be outputted using Gatsby's features.
 
-### 'footer'
-Footer details
+## Downloading and Installation
+Download and Installation instructions for Gatsby and it's dependencies: can be found here:
+https://www.gatsbyjs.com/tutorial/part-zero/#familiarize-yourself-with-the-command-line
 
-### 'itemThumbnails'
-itemThumbnail details
+Repository files: pages, components, and plugins can be developed using your preferred IDE or text editor for JavaScript.
 
-### 'itemThumnailInactive'
-itemThumnailInactive details
+Steps:
+> 1. Install Node.js
+> 2. Install Git
+> 3. Install Gatsby
+> 4. Clone our plugin's Repository onto your local machine.
+> 5. Enter cloned repository location in Shell, Terminal, etcetera.
+> 6. Run Gatsby commands to either develop or build your current implementation.
 
+## Components
+|All Components|||
+|-|-|-|
+|'layout'|'header'|'footer'|
+|'itemThumbnail'|'itemThumnailInactive'|'paypalButton'|
+|'paypalCheckoutOptions'|'custom-add'|'ShoppingCartIcon'|
+|'cart'|'cart-item-list'|'cart-item'|
+
+---
 ### 'layout'
-layout details
+Generates a page's framing (header & footer). Outputs a `<div>` which contains:
+|Layout `<div>`|
+|-|
+|header|
+|content|
+|footer|
 
+Import and Syntax:
+> `import [Defined-Name] from "../components/layout"`
+> `<[Defined-Name]> {JSX Content} </[Defined-Name]>`
+
+Example component usage from within the 'checkout.js' page:
+> 1. `import  Layout  from  "../components/layout"`
+> 2. `<Layout>`
+> `<h1>Example</h1>`
+> `<p> ACME bakery is a family owned and operated bakery... </p>`
+> `</Layout>`
+
+
+---
+### 'header' - ('layout' Dependency)
+Generates a header for the current page. Outputs a pre-styled `<header>` which includes a logo image, website title, category chooser, and a shopping cart icon.
+
+This component is not intended to be used instead of the 'layout' component but can be as shown in the 'layout.js' component.
+
+Import and Syntax:
+> `import [Defined-Name] from "./header"`
+> `<[Defined-Name] keywords={} siteTitle={} siteLogo={} cartCount=""> </[Defined-Name]>`
+
+Example component usage from within the 'layout.js' component:
+> 1. `import Header from "./header"`
+> 2. `<Header keywords={keywordsFound} siteTitle={data.site.siteMetadata.title}  siteLogo={data.file.childImageSharp.fluid} cartCount="0"/>`
+
+---
+### 'footer' - ('layout' Dependency)
+Generates a footer for the current page. Outputs a pre-styled `<Container>` which includes contact information, hours of operation, social media plugs, and sponsor plugs.
+
+This component is not intended to be used instead of the 'layout' component but can be as shown in the 'layout.js' component.
+
+Import and Syntax:
+> `import [Defined-Name] from "./footer"`
+> `<[Defined-Name]> </[Defined-Name]>`
+
+Example component usage from within the 'layout.js' component:
+> 1. `import Footer from "./footer"`
+> 2. `<Footer />`
+
+---
+### 'itemThumbnail'
+Generates a tiled `div` containing store items. Store items are pre-styled within 'itemThumbnail.js'. Includes a store item's thumbnail, title, and price. Uses the 'paypalCheckoutOption' component to display customization and quantity.
+
+Import and Syntax:
+> `import [Defined-Name] from "../components/itemThumbnail"`
+> `<[Defined-Name] exc={} key={} options={} link={} heading={} price={} imageThumb={} active={}> </[Defined-Name]>`
+
+Example component usage from within the 'index.js' page:
+> 1. `import ItemThumbnail from "../components/itemThumbnail"`
+> 2. `<ItemThumbnail exc={node.excerpt}  key={node.fields.slug}  options={node.frontmatter.options}  link={node.fields.slug}  heading={node.frontmatter.title}  price={node.frontmatter.price}  imageThumb={node.frontmatter.image.childImageSharp.fluid}  active={node.frontmatter.active}  />`
+
+---
+### 'itemThumnailInactive'
+Generates a tiled `div` containing store items. Store items are pre-styled within 'itemThumbnail.js'. Includes a store item's thumbnail, title, and price. 
+
+This component does not contain the option to "add to cart" generated by the 'paypalCheckoutOption' component.
+
+Import and Syntax:
+> `import [Defined-Name] from "../components/itemThumbnailInactive"`
+> `<[Defined-Name] key={} link={} heading={} price={} imageThumb={}> </[Defined-Name]>`
+
+Example component usage:
+> 1. `import ItemThumbnailInactive from "../components/itemThumbnailInactive"`
+> 2. `<ItemThumbnailInactive link={node.fields.slug}  heading={node.frontmatter.title}  price={node.frontmatter.price}  imageThumb={node.frontmatter.image.childImageSharp.fluid} />`
+
+---
 ### 'paypalButton'
-paypalButton details
+Generates a PayPal payment button to handle payments through PayPal. An example implementation can be seen on PayPal's developer website:
+https://developer.paypal.com/docs/checkout/#
 
+Import and Syntax:
+> `import [Defined-Name] from "../components/paypalButton"`
+> `<[Defined-Name] price={} title = {} option ={} amount={} />`
+
+Example component usage from within the 'checkout.js' page:
+> 1. `import PaypalButton from "../components/paypalButton"`
+> 2. `<PaypalButton price={0} title = {0} option ={0} amount={0} />`
+
+---
 ### 'paypalCheckoutOptions'
-paypalCheckoutOptions details
+Generates a customization option, quantity option, and makes use of 'custom-add' to generate a button which adds an item into the shopping cart. Item values are passed to the 'react-cart' plugin.
+
+Import and Syntax:
+> `import [Defined-Name] from "../components/paypalCheckoutOptions"`
+> `<[Defined-Name] options={post.frontmatter.options} title={post.frontmatter.title} price={post.frontmatter.price}> </[Defined-Name]>`
+
+Example component usage from within the 'productDetails.js' page:
+> 1. `import  PaypalComponent  from  "../components/paypalCheckoutOptions"`
+> 2. `var pp_options = <PaypalComponent options={post.frontmatter.options} title={post.frontmatter.title} price={post.frontmatter.price} />`
+
+---
+### 'custom-add' - ('paypalCheckoutOptions' Dependency)
+Generates a button: `ADD TO CART`, which handles store-item data-passing between the 'react-cart' sub-plugin and the current page.
+
+ This component is not intended to be used instead of 'paypalCheckoutOptions'.
+
+---
+### 'ShoppingCartIcon' - ('header' Dependency) (Use 'header')
+Generates a `<div>` which contains a shopping cart icon along with a number to designate the amount of items within a local user's cart.
+
+This component is not intended to be used instead of the 'header' component but can be as shown in the 'header.js' component.
+
+Import and Syntax:
+> `import {useCart} from '../../plugins/react-cart/react-cart'`
+> `import [Defined-Name] from './ShoppingCartIcon'`
+> `<[Defined-Name] cartCount={} name=""> </[Defined-Name]>`
+
+Example component usage from within the 'header.js' component:
+> 1. `import {useCart} from '../../plugins/react-cart/react-cart'`
+> 2. `import ShoppingCartIcon from './ShoppingCartIcon'`
+> 3. `function ReturnTotalItems() {`
+> `const {totalItems} = useCart()`
+> `return (${totalItems})`
+> `}`
+> 4. `<ShoppingCartIcon cartCount={ReturnTotalItems()} name="Cart"/>`
+
+---
+### 'cart'
+Generates a `<div>` which visualizes the cart items. The cart is pre-styled in CSS within the 'cart-item.js' component. Cart items and their data are pulled from the sub-plugin 'react-cart' which handles the functionality of the cart. If there are no items in the shopping cart, a message is displayed instead of generating the cart.
+
+Import and Syntax:
+> `import [Defined-Name] from '../components/cart'`
+> `<[Defined-Name]> </[Defined-Name]>`
+
+Example component usage can be found in the 'checkout.js' page:
+>1. `import Cart from '../components/cart'`
+>2. `<Cart/>`
+
+---
+### 'cart-item-list' - ('cart' Dependency) (Use 'cart')
+Generates a `<div>` which contain a list of individually styled cart items. This component is used by 'cart' for the sole purpose of generating the cart.
+
+This component is not intended to be used instead of the 'cart' component but can be as shown in the 'cart.js' component.
+
+Import and Syntax:
+> `import  [Defined-Name]  from  './cart-item-list'`
+> `<[Defined-Name]> </[Defined-Name]>`
+
+Example component usage from within the 'cart.js' page:
+> 1. `import CartItemList from './cart-item-list'`
+> 2. `<CartItemList/>`
+
+---
+### 'cart-item' - ('cart-item-list' Dependency) (Use 'cart')
+Generates individual shopping cart items with pre-styled CSS in an inline-block `<div>` format. This component is used by 'cart-item-list' to populate the item list.
+
+This component is not intended to be used instead of the 'cart' component but can be as shown in the 'cart-item-list.js' component.
+
+Import and Syntax:
+> `import {useCart} from  '../../plugins/react-cart/react-cart'`
+> `import [Defined-Name] from './cart-item-list'`
+> `{items.map([Defined-Name])}`
+
+Example component usage from within the 'cart-item-list.js' page:
+> 1. `import {useCart} from '../../plugins/react-cart/react-cart'`
+> 2. `import CartItem from './cart-item'`
+> 3. `const {items} = useCart()`
+> 4. `return <div className="cart-item-list"> {items.map(CartItem)} </div>`
+
+
+## Sub-Plugins
+
+### 'react-cart'
+Handles the shopping cart functionality and stores cart locally using the sub-plugin 'useLocalStorage'.
+
+Contains ...
+
+### 'useLocalStorage' - ('react-cart' Dependency)
+Stores cart information (Cart item) locally on the user's instance. This sub-plugin was created to support the 'react-cart' sub-plugin.
+
+Contains two functions ...
+> useState ()
+
+> setValue ()
 
 ## Current Implementation Details
 
 ### PayPal Integration
-The PayPal button is calculated into two sub-plugins:
->- paypalButton.js
->- paypalCheckoutOptions.js
+The PayPal button generated from the component: 'paypalButton.js'
 
 **paypalButton.js**
->Creates a PayPal purchase button which receives information from the sub-plugin paypalCheckoutOptions,js and creates a call to PayPal's API to process a purchase. Options on the PayPal receipt is also determined within this function.
 
-**paypalCheckoutOptions.js**
->Calls PayPal's API with product checkout data and returns keys and necessary information for paypalButton.js
+Creates a PayPal purchase button which receives price and information from 'react-cart' and creates a call to PayPal's API to process a purchase. Options on the PayPal receipt is also determined within this function.
 
 ---
 ### File Structure
-
 File structure information here.
 
 ---
 ### Markdown Back-End
 All information displayed in the store page and product pages are derived from the content markdown files, which are broken down into several custom keywords:
->-  **'title'** = The title or name of the product being displayed.
->-  **'price'** = The price of the product being displayed.
->-  **'image'** = The location of the image of the product being displayed. (File location)
->-  **'keyword'** = The category of the product being displayed.
->-  **'options'** = The options being displayed with the item.
+>  **'title'** = The title or name of the product being displayed.
+
+>  **'price'** = The price of the product being displayed.
+
+>  **'image'** = The location of the image of the product being displayed. (File location)
+
+>  **'keyword'** = The category of the product being displayed.
+
+>  **'options'** = The options being displayed with the item.
 > Format: ['Option 1', 'Option 2']
 > Example: small, medium, large
->-  **'enabled'** = The factor determining whether to display a product.
->> Example: | TRUE => Displaying | FALSE => Not Displaying |
->-  **'active'** = The factor determining whether to display a product's payment information.
->> Example: | TRUE => Displaying Payment Information | FALSE => Not Displaying Payment Information |
 
-## Downloading
-Downloading instructions here.
+>  **'enabled'** = The factor determining whether to display a product.
+> Example: TRUE: Displaying & FALSE: Not Displaying
 
-## Installation
-Installation instructions here.
+>  **'active'** = The factor determining whether to display a product's payment information.
+> Example: TRUE: Displaying Payment Information & FALSE: Not Displaying Payment Information
 
 ## Dependencies
 **1. 'gatsby-transformer-sharp'**
@@ -147,5 +297,4 @@ Installation instructions here.
 > Used to...
 
 ## Metadata
-
 Not sure what goes here.
