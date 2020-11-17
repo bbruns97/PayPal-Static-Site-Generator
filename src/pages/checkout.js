@@ -68,10 +68,22 @@ function Returntotal(){
 
 }
 
+function ReturnItems(){
+  
+  const { items } = useCart()
+
+  
+
+
+  return ( <span >{ items[1].id }</span > )
+
+}
+
 const CheckoutPage = () => (
   <Layout>
     <CartTitle>
       MY CART
+     
     </CartTitle>
 
     <CartArea>

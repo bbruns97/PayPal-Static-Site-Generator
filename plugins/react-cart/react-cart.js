@@ -71,6 +71,7 @@ const generateCartState = (state = initialState, items = []) => {
     totalItems: calculateTotalItems(items),
     totalUniqueItems,
     cartTotal: calculateCartTotal(items),
+    itemList: items,
     isEmpty,
   };
 };

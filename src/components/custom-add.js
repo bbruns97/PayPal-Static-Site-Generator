@@ -10,7 +10,7 @@ export default function Customadd(props)  {
     
     const { addItem } = useCart()
 
-    const  product  = {id: props.id, name: props.title, description: props.option, price: props.price, amount: props.amount}
+    const  product  = {id: props.id, name: props.title, description: props.option, price: props.price, amount: props.amount, imageThumb: props.imageThumb}
    
         
 
@@ -19,8 +19,8 @@ export default function Customadd(props)  {
         return (
            
            <div>
-            
-            <button style={{width: 250, height: 40, borderRadius: 0, outline: 'none', border: 'none', color: 'white', backgroundColor: 'black', fontWeight: 'bold', fontSize: 16, cursor: 'pointer'}} onClick={() => addItem( product,  product.amount )}>ADD TO CART</button>
+                
+            <button style={{width: 250, height: 40, borderRadius: 0, outline: 'none', border: 'none', color: 'white', backgroundColor: 'black', fontWeight: 'bold', fontSize: 16, cursor: 'pointer'}} onClick={() => addItem( product,  product.amount )}>ADD TO CART </button>
             
             
             </div>

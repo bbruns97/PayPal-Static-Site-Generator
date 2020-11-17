@@ -42,7 +42,7 @@ export default  class PaypalComponent extends React.Component {
         counter++;
       }
 
-        const { title, options, price } = this.props;
+        const { title, options, price, imageThumb} = this.props;
         var showOptions = true;
         if(this.props.options.length > 0){
           showOptions = false;
@@ -76,7 +76,7 @@ export default  class PaypalComponent extends React.Component {
             <div>
               
             <br></br>
-            <Customadd price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value}/>
+            <Customadd price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
                 
             <br></br>
             </div>

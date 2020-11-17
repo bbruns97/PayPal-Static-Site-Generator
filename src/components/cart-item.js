@@ -1,7 +1,7 @@
 import React from 'react'
 import { useCart } from '../../plugins/react-cart/react-cart'
 import styled from "styled-components"
-
+import Img from "gatsby-image";
 const CartItemDiv = styled.div`
     display: inline-block;
     width: 315px;
@@ -19,7 +19,7 @@ const CartItemInfo = styled.div`
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
 `
 
-const ImageDiv = styled.div`
+const ImageDiv = styled(Img)`
     width: 315px;
     height: 250px;
     background-color: lightgray;
@@ -85,12 +85,12 @@ const IncrementStyle = styled.span`
 `
 
 const RemoveButton = styled.div`
-  margin-top: 15px;
+  margin-top: 15px;  
   margin-left: 186px;
 `
 
 //import { useCart } from 'react-use-cart'
-function CartItem({ id, name, description, quantity}) {
+function CartItem({ id, name, description, quantity, imageThumb, price}) {
   const { updateItemQuantity, removeItem } = useCart()
 
   const increment = () => updateItemQuantity(id, parseInt(quantity) + 1 )
@@ -99,16 +99,17 @@ function CartItem({ id, name, description, quantity}) {
 
   return (
     <CartItemDiv key={id} className="cart-list-item">
-      <ImageDiv>
-        
-      </ImageDiv>
+      <ImageDiv fluid={imageThumb} />
+      
+      
 
       <CartItemInfo>
-
+      
         <InfoContainer>
           <br/>
           <div className="cart-list-item--name">
             <TitleStyle>{name}</TitleStyle>
+            
           </div>
 
           <div className="cart-list-item--quantity">
@@ -134,7 +135,7 @@ function CartItem({ id, name, description, quantity}) {
             </div>
 
             <TextStyle>Option: <TextStyleOption>{description}</TextStyleOption></TextStyle> 
-
+            <TextStyle>Cost:  <TextStyleOption> ${price * quantity}</TextStyleOption></TextStyle> 
             <br/>
 
             <RemoveButton>
