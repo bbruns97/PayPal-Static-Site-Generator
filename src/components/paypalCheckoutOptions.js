@@ -69,7 +69,7 @@ export default  class PaypalComponent extends React.Component {
             <br></br>
             <br></br>
             <label for="product_quantity"></label>
-            <input style={{fontWeight: "bold",width: "110px", min: "1", height: 40, border:"1px solid lightgray", borderRadius: 3, paddingLeft: 10}} id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
+            <input style={{fontWeight: "bold",width: "110px", height: 40, border:"1px solid lightgray", borderRadius: 3, paddingLeft: 10}} defaultValue="1" min="1" id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
 
             
             </form>
