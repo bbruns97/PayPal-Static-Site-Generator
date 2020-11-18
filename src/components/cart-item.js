@@ -90,7 +90,7 @@ const RemoveButton = styled.div`
 `
 
 //import { useCart } from 'react-use-cart'
-function CartItem({ id, name, description, quantity, imageThumb, price}) {
+function CartItem({ id, name, options, quantity, imageThumb, price}) {
   const { updateItemQuantity, removeItem } = useCart()
 
   const increment = () => updateItemQuantity(id, parseInt(quantity) + 1 )
@@ -134,7 +134,7 @@ function CartItem({ id, name, description, quantity, imageThumb, price}) {
               </IncrementStyle>
             </div>
 
-            <TextStyle>Option: <TextStyleOption>{description}</TextStyleOption></TextStyle> 
+            <TextStyle>Option: <TextStyleOption>{options}</TextStyleOption></TextStyle> 
             <TextStyle>Cost:  <TextStyleOption> ${price * quantity}</TextStyleOption></TextStyle> 
             <br/>
 

@@ -10,7 +10,7 @@ export default function Customadd(props)  {
     
     const { addItem } = useCart()
 
-    const  product  = {id: props.id, name: props.title, description: props.option, price: props.price, amount: props.amount, imageThumb: props.imageThumb}
+    const  product  = {id: props.id, name: props.title, options: props.option, price: props.price, amount: props.amount, imageThumb: props.imageThumb}
    
         
 

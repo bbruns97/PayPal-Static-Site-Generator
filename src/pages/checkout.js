@@ -59,27 +59,41 @@ const CartPrice = styled.h1`
     margin-left: 30%;
 `
 
+var cartItemLists 
+var myItemAmounts
 
 function Returntotal(){
-  
+    
   const { cartTotal } = useCart()
 
-  return ( <span >{ cartTotal }</span > )
+  return ( cartTotal  )
 
 }
 
-function ReturnItems(){
+function ItemsReturn(){
   
-  const { items } = useCart()
+  const { items, totalUniqueItems, totalItems, itemAmounts} = useCart()
+   cartItemLists = items
 
-  
+    myItemAmounts = itemAmounts
 
-
-  return ( <span >{ items[1].id }</span > )
 
 }
 
-const CheckoutPage = () => (
+
+function CheckoutPage(props){
+
+  
+
+
+var cartTotal = Returntotal()
+
+
+ItemsReturn()
+
+
+
+ return(
   <Layout>
     <CartTitle>
       MY CART
@@ -96,16 +110,21 @@ const CheckoutPage = () => (
 
     <CartPrice>
       $<Returntotal/> USD
+   
     </CartPrice>
 
-    <OrderButton>
-      <PaypalButton price={0} title = {0} option ={0}  amount={0} />
+    <OrderButton >
+     
+      <PaypalButton items={cartItemLists} total={cartTotal} itemAmounts = {myItemAmounts}/>
+     
+
     </OrderButton>
     
     
     
   </Layout>
-)
+ )
+}
 
 export default CheckoutPage
 
