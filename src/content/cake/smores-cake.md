@@ -5,7 +5,6 @@ image: "./smores-cake.jpg"
 keyword: Cake
 options: [‘No Customization’,’Custom Message’]
 enabled: true
-active: true
+active: false
 ---
 Try our newest flavor - smores! Only here for the summer!
-
