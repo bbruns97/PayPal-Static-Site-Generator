@@ -57,7 +57,6 @@ const ItemThumbnailInfo = styled.div`
     height: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     border-right: 2px solid lightgray;
     border-left: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
@@ -73,7 +72,6 @@ const ItemThumbnailInactiveInfo = styled.div`
     display: flex;
     color: "#696969";
     flex-direction: column;
-    justify-content: center;
     border-right: 2px solid lightgray;
     border-left: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
@@ -82,6 +80,11 @@ const ItemThumbnailInactiveInfo = styled.div`
     padding: 15px;
     box-shadow: .25px .25px 8px lightgray;
 `
+const excerptText = styled.div`
+    display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+`
 
 
 const itemThumbnail = (props) => {
@@ -89,14 +92,13 @@ const itemThumbnail = (props) => {
     return (
         <div>
         {props.active === true &&
-        <ItemThumbnailStyled>
-            <LinkStyled to={props.link}>
-                <ImgStyled fluid={props.imageThumb} />
-                
-            </LinkStyled>
+            <ItemThumbnailStyled>
+                <LinkStyled to={props.link}>
+                    <ImgStyled fluid={props.imageThumb} />
+                </LinkStyled>
                 <ItemThumbnailInfo>
-                    <Header as="h4" content={props.heading} style={{fontSize: 25, fontFamily: "sans-serif"}} />
-                    <div style={{fontSize: 16}} dangerouslySetInnerHTML={{ __html: props.exc }} />
+                    <Header as="h4" content={props.heading} style={{height: "2.4em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', fontSize: 25, fontFamily: "sans-serif"}} />
+                    <div style={{height: "3.6em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
                     <br></br>
                     {props.active === true &&
                         <div>
@@ -107,17 +109,17 @@ const itemThumbnail = (props) => {
                     }
 
                 </ItemThumbnailInfo>
-        </ItemThumbnailStyled >
+            </ItemThumbnailStyled >
         }
         {props.active === false &&
-        <ItemInactiveThumbnailStyled>
+            <ItemInactiveThumbnailStyled>
                     <LinkStyled to={props.link}>
                         <ImgStyled fluid={props.imageThumb} />
 
                     </LinkStyled>
                         <ItemThumbnailInactiveInfo>
-                            <Header as="h4" content={props.heading} style={{color: "#696969", fontSize: 25, fontFamily: "sans-serif"}} />
-                            <div style={{fontSize: 16}} dangerouslySetInnerHTML={{ __html: props.exc }} />
+                            <Header as="h4" content={props.heading} style={{height: "2.4em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', fontSize: 25, fontFamily: "sans-serif"}} />
+                            <div style={{height: "3.6em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
                             <br></br>
                             <p style={{textAlign: "center"}}> <i>Not Currently Available</i></p>
                         </ItemThumbnailInactiveInfo>

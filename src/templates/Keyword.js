@@ -28,7 +28,8 @@ const Keys = ({ pageContext, data }) => {
         <ThumbnailsWrapper>
             {edges.map(({ node }) => (
                 <div key={node.id}>
-                    <ItemThumbnail key={node.fields.slug} options={node.frontmatter.options} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid} active={node.frontmatter.active}/>
+                    <ItemThumbnail exc={ node.excerpt } key={node.fields.slug} options={node.frontmatter.options} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid} active={node.frontmatter.active}/>
+
                 </div>
 
             ))}
