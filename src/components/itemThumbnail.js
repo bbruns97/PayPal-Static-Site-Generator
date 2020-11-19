@@ -54,7 +54,7 @@ const ImgStyled = styled(Img)`
 
 const ItemThumbnailInfo = styled.div`
     width: 350px;
-    height: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     border-right: 2px solid lightgray;
@@ -68,7 +68,7 @@ const ItemThumbnailInfo = styled.div`
 
 const ItemThumbnailInactiveInfo = styled.div`
     width: 350px;
-    height: 350px;
+    height: 400px;
     display: flex;
     color: "#696969";
     flex-direction: column;
@@ -79,11 +79,6 @@ const ItemThumbnailInactiveInfo = styled.div`
     border-bottom-left-radius: 10px;
     padding: 15px;
     box-shadow: .25px .25px 8px lightgray;
-`
-const excerptText = styled.div`
-    display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
 `
 
 
