@@ -101,7 +101,7 @@ const itemThumbnail = (props) => {
                     {props.active === true &&
                         <div>
                             <div>
-                                <PaypalComponent  options = { props.options } title = { props.title } price ={ props.price} />
+                                <PaypalComponent  options = { props.options } title = { props.heading } price ={ props.price} imageThumb = {props.imageThumb} />
                             </div>
                         </div>
                     }

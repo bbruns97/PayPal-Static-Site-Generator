@@ -34,7 +34,7 @@ export default ({ data }) => {
 
 
 
-    var pp_options = <PaypalComponent options={post.frontmatter.options} title={post.frontmatter.title} price={post.frontmatter.price} />
+    var pp_options = <PaypalComponent options={post.frontmatter.options} title={post.frontmatter.title} price={post.frontmatter.price} imageThumb = {post.frontmatter.image.childImageSharp.fluid} />
   
 
     return (

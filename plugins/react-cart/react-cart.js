@@ -14,6 +14,7 @@ export const initialState = {
   items: [],
   totalItems: 0,
   totalUniqueItems: 0,
+  itemAmounts: [],
   isEmpty: true,
 };
 
@@ -71,6 +72,7 @@ const generateCartState = (state = initialState, items = []) => {
     totalItems: calculateTotalItems(items),
     totalUniqueItems,
     cartTotal: calculateCartTotal(items),
+    itemAmounts: calculateIndividualItems(items),
     isEmpty,
   };
 };
@@ -86,6 +88,19 @@ const calculateCartTotal = (items = []) =>
 
 const calculateTotalItems = (items = []) =>
   items.reduce((sum, item) => parseInt(sum) + parseInt(item.quantity), 0);
+
+function calculateIndividualItems (items = []){
+  var count
+  var output = []
+  for( count=0; count < items.length; count++)
+  {
+
+      output.push(items[count].quantity)
+    
+   
+  }
+  return output
+} 
 
 const calculateUniqueItems = (items = []) => items.length;
 
@@ -115,6 +130,9 @@ export function CartProvider({
   useEffect(() => {
     saveCart(JSON.stringify(state));
   }, [state, saveCart]);
+
+
+  
 
   const setItems = (items) => {
     dispatch({
@@ -160,7 +178,7 @@ export function CartProvider({
 
     onItemUpdate && onItemUpdate(payload);
   };
-
+ 
   const updateItemQuantity = (id, quantity) => {
     if (quantity <= 0) {
       onItemRemove && onItemRemove(id);
@@ -212,6 +230,7 @@ export function CartProvider({
         updateItemQuantity,
         removeItem,
         emptyCart,
+        
       }}
     >
       {children}

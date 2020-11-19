@@ -1,7 +1,7 @@
 import React from 'react'
 import { useCart } from '../../plugins/react-cart/react-cart'
 import styled from "styled-components"
-
+import Img from "gatsby-image";
 const CartItemDiv = styled.div`
     display: inline-block;
     width: 315px;
@@ -13,15 +13,15 @@ const CartItemDiv = styled.div`
 
 const CartItemInfo = styled.div`
     width: 315px;
-    height: 150px;
+    height: 175px;
     fill: #ffffff;
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
 `
 
-const ImageDiv = styled.div`
+const ImageDiv = styled(Img)`
     width: 315px;
-    height: 250px;
+    height: 225px;
     background-color: lightgray;
 `
 
@@ -64,7 +64,7 @@ const TextStyleQuantity = styled.p`
   display: inline;
 `
 
-const TextStyleOption = styled.p`
+const OptionStyle = styled.p`
   font-family: Roboto;
   font-size: 20px;
   color: #000000;
@@ -80,17 +80,35 @@ const TextStyleOption = styled.p`
   text-overflow: ellipsis;
 `
 
+const PriceStyle = styled.p`
+  font-family: Roboto;
+  font-size: 20px;
+  color: #000000;
+  text-decoration: none solid rgb(0, 0, 0);
+  margin-left: 45px;
+  display: inline-block;
+  vertical-align: bottom;
+
+  height: 23px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
 const IncrementStyle = styled.span`
-  margin-left: 10px;
+  margin-left: 134px;
+  vertical-align: top;
 `
 
 const RemoveButton = styled.div`
-  margin-top: 15px;
+  margin-top: 15px;  
   margin-left: 186px;
+  display: inline-block;
 `
 
 //import { useCart } from 'react-use-cart'
-function CartItem({ id, name, description, quantity}) {
+function CartItem({ id, name, options, quantity, imageThumb, price}) {
   const { updateItemQuantity, removeItem } = useCart()
 
   const increment = () => updateItemQuantity(id, parseInt(quantity) + 1 )
@@ -99,16 +117,17 @@ function CartItem({ id, name, description, quantity}) {
 
   return (
     <CartItemDiv key={id} className="cart-list-item">
-      <ImageDiv>
-        
-      </ImageDiv>
+      <ImageDiv fluid={imageThumb} />
+      
+      
 
       <CartItemInfo>
-
+      
         <InfoContainer>
           <br/>
           <div className="cart-list-item--name">
             <TitleStyle>{name}</TitleStyle>
+            
           </div>
 
           <div className="cart-list-item--quantity">
@@ -133,9 +152,9 @@ function CartItem({ id, name, description, quantity}) {
               </IncrementStyle>
             </div>
 
-            <TextStyle>Option: <TextStyleOption>{description}</TextStyleOption></TextStyle> 
-
-            <br/>
+            <TextStyle>Option: <OptionStyle>{options}</OptionStyle></TextStyle>
+            
+            <TextStyle>Price:  <PriceStyle> ${price * quantity}</PriceStyle></TextStyle> 
 
             <RemoveButton>
               <button
