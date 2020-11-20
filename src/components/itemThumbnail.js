@@ -36,10 +36,15 @@ const LinkStyled = styled(Link)`
     justify-content: center;
 `
 
-const Price = styled.p`
-    padding-bottom: 10px;
+const LinkStyledInactive = styled.div`
+    width: 100%;
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `
-
 
 const ImgStyled = styled(Img)`
     height: 200px;
@@ -108,17 +113,16 @@ const itemThumbnail = (props) => {
         }
         {props.active === false &&
             <ItemInactiveThumbnailStyled>
-                    <LinkStyled to={props.link}>
-                        <ImgStyled fluid={props.imageThumb} />
-
-                    </LinkStyled>
-                        <ItemThumbnailInactiveInfo>
-                            <Header as="h4" content={props.heading} style={{height: "2.4em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', fontSize: 25, fontFamily: "sans-serif"}} />
-                            <div style={{height: "3.6em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
-                            <br></br>
-                            <p style={{textAlign: "center"}}> <i>Not Currently Available</i></p>
-                        </ItemThumbnailInactiveInfo>
-                </ItemInactiveThumbnailStyled>
+                <LinkStyledInactive>
+                    <ImgStyled fluid={props.imageThumb} />
+                </LinkStyledInactive>
+                <ItemThumbnailInactiveInfo>
+                    <Header as="h4" content={props.heading} style={{height: "2.4em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', fontSize: 25, fontFamily: "sans-serif"}} />
+                    <div style={{height: "3.6em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
+                    <br></br>
+                    <p style={{textAlign: "center"}}> <i>Not Currently Available</i></p>
+                </ItemThumbnailInactiveInfo>
+            </ItemInactiveThumbnailStyled>
 
         }
         </div>
