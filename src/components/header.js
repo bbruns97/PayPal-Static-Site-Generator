@@ -17,21 +17,11 @@ const LogoStyled = styled(Img)`
 `
 
 
-function ReturnTotalItems(){\
-
-  const  totalItems  = 0
-  if(typeof useCart() == undefined || typeof useCart() == null){
-    totalItems = useCart()
-  }
-  else {
-    totalItems = 0
-  }
+function ReturnTotalItems(){
   
+  const totalItems  = useCart()
 
-    return (totalItems)
-
-  
-
+  return (`${totalItems.totalItems}`)
 }
 
 
