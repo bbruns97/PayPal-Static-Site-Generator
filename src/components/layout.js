@@ -57,8 +57,8 @@ export default ({ children }) => {
   )
   const keywordsFound = []
   data.allMarkdownRemark.edges.forEach(({ node }) => {
-          if (keywordsFound.indexOf(node.frontmatter.keyword) === -1) {
-              keywordsFound.push(node.frontmatter.keyword)
+          if (keywordsFound.indexOf("/" + node.frontmatter.keyword) === -1) {
+              keywordsFound.push("/" + node.frontmatter.keyword)
           }
       })
   return (
