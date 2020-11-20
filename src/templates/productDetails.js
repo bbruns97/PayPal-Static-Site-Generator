@@ -11,16 +11,9 @@ const DetailImgWrapper = styled.div`
     width: 60%;
 `
 
-function test(){
-  alert('changed');
-}
-
 export default ({ data }) => {
 
-
-  
-  
-
+    window.currentIndex = 0
 
     const post = data.markdownRemark;
 
@@ -30,14 +23,17 @@ export default ({ data }) => {
     {
         pricesString = pricesString + post.frontmatter.options[i] +' = $' + post.frontmatter.price[i] + " ";
     }
-    
-
-
 
     var pp_options = <PaypalComponent options={post.frontmatter.options} title={post.frontmatter.title} price={post.frontmatter.price} imageThumb = {post.frontmatter.image.childImageSharp.fluid} />
-  
+    
+    var i = -1
+
+    function increaseCounter() {
+      i = i + 1
+    }
 
     return (
+      
 <Layout>
   <div>
 
@@ -67,7 +63,7 @@ export default ({ data }) => {
             </List>
           </Grid.Column>
 
-          <Grid.Column width={4}>
+          <Grid.Column width={5}>
             <List>
                 <List.Item>
                     <List.Content>
@@ -79,10 +75,24 @@ export default ({ data }) => {
                       }
                       <br></br>
                       <br></br>
-                      <Header as="h4" content="PRICE" style={{fontSize: 30}} />
-                      <p>QUANTITY AND OPTION MAY AFFECT YOUR TOTAL</p>
+                      <Header as="h4" content="OPTIONS AND PRICES" style={{fontSize: 30}} />
+                      <p>QUANTITY AND OPTIONS MAY AFFECT YOUR TOTAL</p>
                       <br></br>
-                      <p style={{color: 'black', fontSize: 24}}><span style={{color: 'green'}}>$</span>{pricesString} <span style={{color: 'green'}}>USD</span></p>
+                      <table style={{fontSize: '16px'}}>
+                        <tr>
+                          <th style={{backgroundColor: 'black', color: 'white', fontWeight: 'normal', width: '300px', padding: '10px'}}>Option</th>
+                          <th style={{backgroundColor: 'black', color: 'white', fontWeight: 'normal', width: '150px', padding: '10px'}}>Price</th>
+                        </tr>
+                        {
+                          (post.frontmatter.options).map((data) =>
+                          
+                            <tr onLoad={increaseCounter()} style={{}}>
+                              <td style={{textAlign: 'center', padding: '10px', backgroundColor: "#EEE"}}>{data}</td>
+                              <td style={{textAlign: 'center', padding: '10px', backgroundColor: "#EEE"}}>${post.frontmatter.price[i].toFixed(2)}</td>
+                            </tr>
+                          )
+                        }
+                      </table>
                     </List.Content>
                 </List.Item>
             </List>

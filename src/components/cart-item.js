@@ -7,7 +7,7 @@ import Img from "gatsby-image";
 const Div_cartItemWrapper = styled.div`
     display: inline-block;
     width: 315px;
-    height: 400px;
+    height: auto;
     margin: 10px;
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
@@ -26,7 +26,7 @@ const Div_infoContainer = styled.div`
 
 const Div_infoContainer_Background = styled.div`
     width: 315px;
-    height: 170px;
+    height: 190px;
     fill: #ffffff;
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
@@ -114,7 +114,7 @@ const Div_incrementer = styled.div`
 `
 
 const Div_removeButton = styled.div` 
-  margin-left: 186px;
+  margin-left: 210px;
 `
 
 //import { useCart } from 'react-use-cart'
@@ -145,8 +145,8 @@ function CartItem({ id, name, options, quantity, imageThumb, price}) {
             </Div_valueWrapper_quantity>
 
             <Div_incrementer>
-              <button onClick={decrement} className="cart-list-item-button cart-list-item-button--decrement"> - </button>
-              <button onClick={increment} className="cart-list-item-button cart-list-item-button--increment"> + </button>
+              <button onClick={decrement} style={{cursor: 'pointer', color: '#555', border: 'none', boxShadow: '0 0 3px #AAA', backgroundColor: "#EEE", marginRight:'4px'}} className="cart-list-item-button cart-list-item-button--decrement"> - </button>
+              <button onClick={increment} style={{cursor: 'pointer', color:'#555', border: 'none', boxShadow: '0 0 3px #AAA', backgroundColor: "#EEE", marginRight:'4px'}} className="cart-list-item-button cart-list-item-button--increment"> + </button>
             </Div_incrementer>
           </Div_subWrapper>
 
@@ -163,12 +163,12 @@ function CartItem({ id, name, options, quantity, imageThumb, price}) {
             <Span_subtext>Price:</Span_subtext>
 
             <Div_valueWrapper>
-              <P_price>${price * quantity}</P_price>
+              <P_price>${(price * quantity).toFixed(2)}</P_price>
             </Div_valueWrapper>
           </Div_subWrapper>
 
           <Div_removeButton>
-            <button onClick={remove} className="cart-list-item-button cart-list-item-button--remove-item"> Remove item </button>
+            <button onClick={remove} style={{cursor: 'pointer', color:'#555', border: 'none', boxShadow: '0 0 3px #AAA', backgroundColor: "#EEE", marginRight:'4px', padding: 10}} className="cart-list-item-button cart-list-item-button--remove-item"> Remove </button>
           </Div_removeButton>
           
         </Div_infoContainer>

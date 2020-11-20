@@ -3,7 +3,7 @@ title: Raspberry Lemonade Cupcake
 price: [3.50, 36.00]
 image: "./raspberry-lemonade-cupcake.jpg"
 keyword: Cupcake
-options: [‘Individual’, ‘One Dozen’]
+options: [Individual, One Dozen]
 enabled: true
 active: true
 ---

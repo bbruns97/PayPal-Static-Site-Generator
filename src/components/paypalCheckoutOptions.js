@@ -6,7 +6,6 @@ import Customadd from "./custom-add"
 
 
 
-
 export default  class PaypalComponent extends React.Component {
     
     constructor(props) {
@@ -34,7 +33,6 @@ export default  class PaypalComponent extends React.Component {
   
 
     render() {
-
      
       var counter = -1;
 
@@ -61,7 +59,7 @@ export default  class PaypalComponent extends React.Component {
                             {
 
                                 (this.props.options).map((data) =>
-                                    <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data + " - $" + price[counter]}</option>
+                                    <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data + " - $" + price[counter].toFixed(2)}</option>
 
                                 )
                             }
@@ -76,7 +74,7 @@ export default  class PaypalComponent extends React.Component {
             <div>
               
             <br></br>
-            <Customadd price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
+            <Customadd style={{cursor: 'pointer'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
                 
             <br></br>
             </div>
