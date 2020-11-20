@@ -4,9 +4,8 @@ import PropTypes from "prop-types"
 import Img from 'gatsby-image';
 import styled from "styled-components"
 import {Segment} from 'semantic-ui-react'
-import { useCart } from '../../plugins/react-cart/react-cart'
+import {useCart} from '../../plugins/react-cart/react-cart'
 import ShoppingCartIcon from './ShoppingCartIcon'
-
 
 const LogoStyled = styled(Img)`
     width: 50px;
@@ -15,13 +14,14 @@ const LogoStyled = styled(Img)`
         height: 30px;
       }
 `
-
+const x = require("../../plugins/react-cart/react-cart")
 
 function ReturnTotalItems(){
   
-  const totalItems  = useCart()
+  //const { totalItems } = x.useCart()
 
-  return (`${totalItems.totalItems}`)
+  return x.useCart().totalItems
+
 }
 
 
