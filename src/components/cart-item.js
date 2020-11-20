@@ -1,8 +1,10 @@
-import React from 'react'
-import { useCart } from '../../plugins/react-cart/react-cart'
-import styled from "styled-components"
+import React from 'react';
+import { useCart } from '../../plugins/react-cart/react-cart';
+import styled from "styled-components";
 import Img from "gatsby-image";
-const CartItemDiv = styled.div`
+
+
+const Div_cartItemWrapper = styled.div`
     display: inline-block;
     width: 315px;
     height: 400px;
@@ -11,43 +13,42 @@ const CartItemDiv = styled.div`
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
 `
 
-const CartItemInfo = styled.div`
+const Img_thumbnail = styled(Img)`
     width: 315px;
-    height: 175px;
+    height: 230px;
+    background-color: lightgray;
+`
+
+const Div_infoContainer = styled.div`
+  margin-left: 15px;
+  margin-right: 15px;
+`
+
+const Div_infoContainer_Background = styled.div`
+    width: 315px;
+    height: 170px;
     fill: #ffffff;
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
 `
 
-const ImageDiv = styled(Img)`
-    width: 315px;
-    height: 225px;
-    background-color: lightgray;
-`
-
-const InfoContainer = styled.div`
-  margin-left: 15px;
-  margin-right: 15px;
-`
-
-const TitleStyle = styled.span`
+const Span_title = styled.span`
   font-family: Roboto;
   font-size: 25px;
   color: #000000;
   text-decoration: none solid rgb(0, 0, 0);
+`
 
-  margin-bottom: 15px;
-
-  display: inline-block;
-  vertical-align: bottom;
-
-  width: 270px;
+const Div_title = styled.div`
+  padding-top: 17px;
+  width: 285px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 15px;
 `
 
-const TextStyle = styled.span`
+const Span_subtext = styled.span`
   font-family: Roboto;
   font-size: 20px;
   color: #000000;
@@ -55,56 +56,65 @@ const TextStyle = styled.span`
   display: inline-block;
 `
 
-const TextStyleQuantity = styled.p`
+const Div_subWrapper = styled.div`
+  margin-bottom: 7px;
+`
+
+const Div_valueWrapper_quantity = styled.div`
+  height: 19px;
+  max-width: 161px;
+  vertical-align: text-bottom;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+`
+
+const Div_valueWrapper = styled.div`
+  height: 19px;
+  max-width: 220px;
+  vertical-align: text-bottom;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+`
+
+const Div_quantity_Value = styled.div`
   font-family: Roboto;
   font-size: 20px;
   color: #000000;
   text-decoration: none solid rgb(0, 0, 0);
-  margin-left: 15px;
+  margin-left: 20px;
+  width: 141px;
+  display: inline-block;
+`
+
+const P_option = styled.span`
+  font-family: Roboto;
+  font-size: 20px;
+  color: #000000;
+  text-decoration: none solid rgb(0, 0, 0);
+  margin-left: 35px;
   display: inline;
 `
 
-const OptionStyle = styled.p`
+const P_price = styled.span`
   font-family: Roboto;
   font-size: 20px;
   color: #000000;
   text-decoration: none solid rgb(0, 0, 0);
-  margin-left: 30px;
-  display: inline-block;
-  vertical-align: bottom;
-
-  height: 23px;
-  width: 180px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-left: 48px;
+  display: inline;
 `
 
-const PriceStyle = styled.p`
-  font-family: Roboto;
-  font-size: 20px;
-  color: #000000;
-  text-decoration: none solid rgb(0, 0, 0);
-  margin-left: 45px;
-  display: inline-block;
-  vertical-align: bottom;
-
-  height: 23px;
-  width: 180px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+const Div_incrementer = styled.div`
+  vertical-align: text-bottom;
+  display: inline
 `
 
-const IncrementStyle = styled.span`
-  margin-left: 134px;
-  vertical-align: top;
-`
-
-const RemoveButton = styled.div`
-  margin-top: 15px;  
+const Div_removeButton = styled.div` 
   margin-left: 186px;
-  display: inline-block;
 `
 
 //import { useCart } from 'react-use-cart'
@@ -116,61 +126,55 @@ function CartItem({ id, name, options, quantity, imageThumb, price}) {
   const remove = () => removeItem(id)
 
   return (
-    <CartItemDiv key={id} className="cart-list-item">
-      <ImageDiv fluid={imageThumb} />
+    <Div_cartItemWrapper key={id} className="cart-list-item">
       
+      <Img_thumbnail fluid={imageThumb} />
       
+      <Div_infoContainer_Background>
+        <Div_infoContainer>
 
-      <CartItemInfo>
-      
-        <InfoContainer>
-          <br/>
-          <div className="cart-list-item--name">
-            <TitleStyle>{name}</TitleStyle>
+          <Div_title>
+            <Span_title>{name}</Span_title>
+          </Div_title>
+
+          <Div_subWrapper>
+              <Span_subtext>Quantity:</Span_subtext> 
+
+            <Div_valueWrapper_quantity>
+              <Div_quantity_Value className="cart-item-quantity--amount">{quantity}</Div_quantity_Value>
+            </Div_valueWrapper_quantity>
+
+            <Div_incrementer>
+              <button onClick={decrement} className="cart-list-item-button cart-list-item-button--decrement"> - </button>
+              <button onClick={increment} className="cart-list-item-button cart-list-item-button--increment"> + </button>
+            </Div_incrementer>
+          </Div_subWrapper>
+
+
+          <Div_subWrapper>
+            <Span_subtext>Option:</Span_subtext> 
+
+            <Div_valueWrapper>
+              <P_option>{options}</P_option>
+            </Div_valueWrapper>
+          </Div_subWrapper>
             
-          </div>
+          <Div_subWrapper>
+            <Span_subtext>Price:</Span_subtext>
 
-          <div className="cart-list-item--quantity">
+            <Div_valueWrapper>
+              <P_price>${price * quantity}</P_price>
+            </Div_valueWrapper>
+          </Div_subWrapper>
 
-            <div className="cart-item-quantity--wrapper">
-              <TextStyle>Quantity: <TextStyleQuantity className="cart-item-quantity--amount">{quantity}</TextStyleQuantity></TextStyle>
+          <Div_removeButton>
+            <button onClick={remove} className="cart-list-item-button cart-list-item-button--remove-item"> Remove item </button>
+          </Div_removeButton>
+          
+        </Div_infoContainer>
+      </Div_infoContainer_Background>
 
-              <IncrementStyle>
-                <button
-                  onClick={decrement}
-                  className="cart-list-item-button cart-list-item-button--decrement"
-                >
-                  -
-                </button>
-
-                <button
-                  onClick={increment}
-                  className="cart-list-item-button cart-list-item-button--increment"
-                >
-                  +
-                </button>
-              </IncrementStyle>
-            </div>
-
-            <TextStyle>Option: <OptionStyle>{options}</OptionStyle></TextStyle>
-            
-            <TextStyle>Price:  <PriceStyle> ${price * quantity}</PriceStyle></TextStyle> 
-
-            <RemoveButton>
-              <button
-                onClick={remove}
-                className="cart-list-item-button cart-list-item-button--remove-item"
-              >
-                Remove item
-              </button>
-            </RemoveButton>
-            
-
-          </div>
-        </InfoContainer>
-
-      </CartItemInfo>
-    </CartItemDiv>
+    </Div_cartItemWrapper>
   )
 }
 
