@@ -5,6 +5,7 @@
  */
 
 module.exports = {
+    pathPrefix: "/PayPal-Static-Site-Generator",
     siteMetadata: {
         title: `Acme Bakery`,
         address: `9852 N Acme Way Tempe, AZ 85281`,
