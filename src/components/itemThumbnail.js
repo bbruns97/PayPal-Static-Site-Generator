@@ -54,7 +54,7 @@ const ImgStyled = styled(Img)`
 
 const ItemThumbnailInfo = styled.div`
     width: 350px;
-    height: 400px;
+    height: 360px;
     display: flex;
     flex-direction: column;
     border-right: 2px solid lightgray;
@@ -68,7 +68,7 @@ const ItemThumbnailInfo = styled.div`
 
 const ItemThumbnailInactiveInfo = styled.div`
     width: 350px;
-    height: 400px;
+    height: 360px;
     display: flex;
     color: "#696969";
     flex-direction: column;
