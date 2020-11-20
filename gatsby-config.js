@@ -16,28 +16,41 @@ module.exports = {
     },
     plugins: [
         
-            { resolve: `react-cart` } ,
-            
-          
-        {
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
+        `gatsby-image`,
+        `gatsby-remark-relative-images`,
+
+        {   //React-Cart
+            resolve: `react-cart` 
+        },
+                  
+        {   //Source-Filesystem (Content)
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/src/content`,
             },
         },
 
-        {
+        {   //Source-Filesystem (Images)
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `images`,
                 path: `${__dirname}/src/images`,
             },
         },
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
-        `gatsby-image`,
-        `gatsby-remark-relative-images`,
-        {
+
+        {   //Google-Fonts (Roboto)
+            resolve: "gatsby-plugin-google-fonts",
+            options: {
+              fonts: [
+                  `roboto\:400,700`,
+              ],
+              display: 'swap',
+            },
+        },
+        
+        {   //Transformer-Remark
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
