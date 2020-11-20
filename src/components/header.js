@@ -18,8 +18,12 @@ const LogoStyled = styled(Img)`
 
 
 function ReturnTotalItems(){
+  
+    const  totalItems  = useCart().totalItems || 0
 
-  return useCart().totalItems
+    return (totalItems)
+
+  
 
 }
 
