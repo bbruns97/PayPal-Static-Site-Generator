@@ -120,7 +120,7 @@ const itemThumbnail = (props) => {
                     <Header as="h4" content={props.heading} style={{height: "2.4em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', fontSize: 25, fontFamily: "sans-serif"}} />
                     <div style={{height: "3.6em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
                     <br></br>
-                    <p style={{textAlign: "center"}}> <i>Not Currently Available</i></p>
+                    <p style={{fontSize: 16, textAlign: "center"}}> <i>Not Currently Available</i></p>
                 </ItemThumbnailInactiveInfo>
             </ItemInactiveThumbnailStyled>
 
