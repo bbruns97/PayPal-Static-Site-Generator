@@ -3,7 +3,7 @@ title: Cinnamon Roll
 price: [3.50]
 image: "./cinnamon-roll.jpg"
 keyword: Pastries
-options: [‘Individual’]
+options: [Individual]
 enabled: true
 active: true
 ---

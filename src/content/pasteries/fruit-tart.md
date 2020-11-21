@@ -3,7 +3,7 @@ title: Fruit Tart
 price: [8.00]
 image: "./fruit-tart.jpg"
 keyword: Pastries
-options: [‘Individual’]
+options: [Individual]
 enabled: true
 active: true
 ---

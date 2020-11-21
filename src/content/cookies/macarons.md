@@ -3,7 +3,7 @@ title: Macarons
 price: [2.00, 2.00, 2.00, 2.00, 2.00, 12.00]
 image: "./macarons.jpg"
 keyword: Cookie
-options: [‘Strawberry’’, ‘Pistachio’, ‘Lavender’, ‘Raspberry’, ‘Chocolate’, ‘Variety Pack - 6’]
+options: [Strawberry, Pistachio, Lavender, Raspberry, Chocolate, Variety Pack - 6]
 enabled: true
 active: true
 ---

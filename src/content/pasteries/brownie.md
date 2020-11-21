@@ -3,7 +3,7 @@ title: Brownie
 price: [2.00, 20.00]
 image: "./brownie.jpg"
 keyword: Pastries
-options: [‘Individual’, ‘One Dozen’]
+options: [Individual, One Dozen]
 enabled: true
 active: true
 ---
