@@ -51,7 +51,7 @@ export default  class PaypalComponent extends React.Component {
                         <select style={{height: 40, width: 253, border: "1px solid #8c8c8c", borderRadius: 4, padding: '0px 8px', fontSize: 14, color: '#121212', cursor: 'pointer'}} id="options_drop_down" onChange={this.handleOptionChange}>
                         {
                             (this.props.options).map((data) =>
-                                <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data + " - $" + price[counter].toFixed(2)}</option>
+                                <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data}</option>
                             )
                         }
                         </select>
