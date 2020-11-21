@@ -11,11 +11,9 @@ import {Header} from 'semantic-ui-react'
 const ThumbnailsWrapper = styled.div`
     max-width: 800px;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
     flex-wrap: wrap;
-    padding: 10px;
     margin: auto;
+    margin-left: 30%
 `
 
 const ProductsTitle = styled.h1`
