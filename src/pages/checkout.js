@@ -64,7 +64,7 @@ function Returntotal(){
     
   const { cartTotal } = useCart()
 
-  return ( cartTotal )
+  return ( cartTotal.toFixed(2) )
 
 }
 
