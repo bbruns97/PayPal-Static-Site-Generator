@@ -6,8 +6,13 @@ import CartItemList from './cart-item-list'
 export default function Cart() {
   const { isEmpty } = useCart()
 
-  if (isEmpty) return <p>Your cart is empty</p>
+  if (isEmpty) 
+  {
+    return <p>Your cart is empty</p>
+  }
+  else {
 
-  return <CartItemList />
+    return <CartItemList />
+  }
 }
 

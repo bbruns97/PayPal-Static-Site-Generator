@@ -8,15 +8,20 @@ const UPDATE_ITEM = "UPDATE_ITEM";
 const REMOVE_ITEM = "REMOVE_ITEM";
 const EMPTY_CART = "EMPTY_CART";
 
-const CartContext = createContext();
+
+
 
 export const initialState = {
+  useCart: () => {},
   items: [],
   totalItems: 0,
   totalUniqueItems: 0,
+  cartTotal: 0 ,
   itemAmounts: [],
   isEmpty: true,
 };
+
+const CartContext = createContext(initialState);
 
 export const createCartIdentifier = (len = 12) =>
   [...Array(len)].map(() => (~~(Math.random() * 36)).toString(36)).join("");

@@ -13,7 +13,7 @@ const DetailImgWrapper = styled.div`
 
 export default ({ data }) => {
 
-    window.currentIndex = 0
+    
 
     const post = data.markdownRemark;
 

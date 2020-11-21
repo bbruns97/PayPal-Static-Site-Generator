@@ -64,13 +64,13 @@ function Returntotal(){
     
   const { cartTotal } = useCart()
 
-  return ( cartTotal.toFixed(2)  )
+  return ( cartTotal )
 
 }
 
 function ItemsReturn(){
   
-  const { items, totalUniqueItems, totalItems, itemAmounts} = useCart()
+  const { items,  itemAmounts} = useCart()
    cartItemLists = items
 
     myItemAmounts = itemAmounts
@@ -126,4 +126,3 @@ ItemsReturn()
 export default CheckoutPage
 
 
-//<PaypalButton price={paypalInput} title = {title} option ={this.state.selectedOption}  amount={this.state.value} />
