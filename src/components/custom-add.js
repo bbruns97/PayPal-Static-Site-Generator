@@ -4,6 +4,7 @@ import  { useCart }  from '../../plugins/react-cart/react-cart'
 
 import { Link } from "gatsby"
 
+
 export default function Customadd(props)  {
 
  
@@ -19,9 +20,8 @@ export default function Customadd(props)  {
         return (
            
            <div>
-                
-            <button style={{width: 250, height: 40, borderRadius: 0, outline: 'none', border: 'none', color: 'white', backgroundColor: 'black', fontWeight: 'bold', fontSize: 16, cursor: 'pointer'}} onClick={() => addItem( product,  product.amount )}>ADD TO CART </button>
-            
+                <button style={{width: 261, height: 40, backgroundColor: '#121212', backgroundSize: 'cover', font: 'Roboto', fontSize: 16, color: '#ffffff', textAlign: 'center', cursor: 'pointer'}} onClick={() => addItem( product,  product.amount )}>ADD TO CART </button>
+
             
             </div>
         )   

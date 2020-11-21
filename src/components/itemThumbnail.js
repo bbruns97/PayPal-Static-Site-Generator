@@ -8,8 +8,13 @@ import {Header} from 'semantic-ui-react'
 
 
 const ItemThumbnailStyled = styled.div`
-    width: 350px;
+    width: 300px;
+    height: 620px;
     display: flex;
+    border-radius: 10px;
+    fill: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    stroke-width: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -17,8 +22,13 @@ const ItemThumbnailStyled = styled.div`
 `
 
 const ItemInactiveThumbnailStyled = styled.div`
-    width: 350px;
+    width: 300px;
+    height: 620px;
     display: flex;
+    border-radius: 10px;
+    fill: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    stroke-width: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -47,43 +57,31 @@ const LinkStyledInactive = styled.div`
 `
 
 const ImgStyled = styled(Img)`
-    height: 200px;
+    height: 228px;
     width: auto;
-    max-width: 350px;
+    max-width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-size: cover;
-    background-position: center center;
 `
 
 
 const ItemThumbnailInfo = styled.div`
-    width: 350px;
-    height: 360px;
+    width: 300px;
+    height: 392px;
     display: flex;
     flex-direction: column;
-    border-right: 2px solid lightgray;
-    border-left: 2px solid lightgray;
-    border-bottom: 2px solid lightgray;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding: 15px;
-    box-shadow: .25px .25px 8px lightgray;
+    font-family: Roboto;
+    padding-left: 15px;
 `
 
 const ItemThumbnailInactiveInfo = styled.div`
-    width: 350px;
-    height: 360px;
+    width: 300px;
+    height: 392px;
     display: flex;
     color: "#696969";
     flex-direction: column;
-    border-right: 2px solid lightgray;
-    border-left: 2px solid lightgray;
-    border-bottom: 2px solid lightgray;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding: 15px;
-    box-shadow: .25px .25px 8px lightgray;
+    font-family: Roboto;
+    padding-left: 15px;
 `
 
 
@@ -97,8 +95,8 @@ const itemThumbnail = (props) => {
                     <ImgStyled fluid={props.imageThumb} />
                 </LinkStyled>
                 <ItemThumbnailInfo>
-                    <Header as="h4" content={props.heading} style={{height: "2.4em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', fontSize: 25, fontFamily: "sans-serif"}} />
-                    <div style={{height: "3.6em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
+                    <Header as="h4" content={props.heading} style={{paddingTop: '15px', height: "3.0em", fontSize: 28, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', textDecoration: 'none solid rgb(0, 0, 0)'}} />
+                    <div style={{height: "3.2em", fontSize: 18, maxWidth: '100%', color: '#222222', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis', textDecoration: 'none solid rgb(34, 34, 34)'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
                     <br></br>
                     {props.active === true &&
                         <div>
@@ -117,10 +115,10 @@ const itemThumbnail = (props) => {
                     <ImgStyled fluid={props.imageThumb} />
                 </LinkStyledInactive>
                 <ItemThumbnailInactiveInfo>
-                    <Header as="h4" content={props.heading} style={{height: "2.4em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', fontSize: 25, fontFamily: "sans-serif"}} />
-                    <div style={{height: "3.6em", fontSize: 16, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
+                    <Header as="h4" content={props.heading} style={{paddingTop: '15px', height: "3.0em", fontSize: 28, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', textDecoration: 'none solid rgb(0, 0, 0)'}} />
+                    <div style={{height: "3.2em", fontSize: 18, maxWidth: '100%', color: '#222222', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis', textDecoration: 'none solid rgb(34, 34, 34)'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
                     <br></br>
-                    <p style={{fontSize: 16, textAlign: "center"}}> <i>Not Currently Available</i></p>
+                    <p style={{textAlign: "center", fontSize: 18, color: '#222222'}}> <i>Not Currently Available</i></p>
                 </ItemThumbnailInactiveInfo>
             </ItemInactiveThumbnailStyled>
 

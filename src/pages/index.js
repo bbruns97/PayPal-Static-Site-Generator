@@ -18,12 +18,22 @@ const ThumbnailsWrapper = styled.div`
     margin: auto;
 `
 
+const ProductsTitle = styled.h1`
+    font-family: Roboto;
+    font-size: 28px;
+    color: #222222;
+    text-decoration: none solid rgb(34, 34, 34);
+    margin-top: 39px;
+    margin-bottom: 10px;
+    margin-left: 30%;
+`
+
 export default ({ data }) => {
     console.log(data);
     return (
         <Layout style={{width: 'fit-content(20em)'}}>
 
-            <Header className='products_header' as="h2" content='PRODUCTS' style={{fontSize: 35, maxWidth: 725, margin: '20px auto 0 auto', textAlign: 'center'}}  />
+            <ProductsTitle>PRODUCTS</ProductsTitle>
             <ThumbnailsWrapper>
 
             {data.allMarkdownRemark.edges.map(({ node }) => (

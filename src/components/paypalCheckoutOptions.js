@@ -42,45 +42,55 @@ export default  class PaypalComponent extends React.Component {
 
         const { title, options, price, imageThumb} = this.props;
         var showOptions = true;
-        if(this.props.options.length > 0){
-          showOptions = false;
-        }
         const id = title + this.state.selectedOption
-      return (
-        <div>
-          
-
-
-            
-            <form>
-
-            <label for="options_drop_down" hidden={showOptions} ></label>
-                        <select style={{height: 40, width: 200, border: "1px solid lightgray", borderRadius: 3, fontWeight: 'bold', paddingLeft: 10, cursor: 'pointer'}} id="options_drop_down" onChange={this.handleOptionChange} hidden={showOptions}>
-                            {
-
-                                (this.props.options).map((data) =>
-                                    <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data + " - $" + price[counter].toFixed(2)}</option>
-
-                                )
-                            }
+        if(this.props.options.length > 0){
+            return (
+                <div>
+                <form>
+                    <label for="options_drop_down" ></label>
+                        <select style={{height: 40, width: 253, border: "1px solid #8c8c8c", borderRadius: 4, padding: '0px 8px', fontSize: 14, color: '#121212', cursor: 'pointer'}} id="options_drop_down" onChange={this.handleOptionChange}>
+                        {
+                            (this.props.options).map((data) =>
+                                <option onLoad={increaseCounter()} style={{cursor: 'pointer'}} value={data}>{data + " - $" + price[counter].toFixed(2)}</option>
+                            )
+                        }
                         </select>
-            <br></br>
-            <br></br>
-            <label for="product_quantity"></label>
-            <input style={{fontWeight: "bold",width: "110px", height: 40, border:"1px solid lightgray", borderRadius: 3, paddingLeft: 10}} defaultValue="1" min="1" id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
+                    <br></br>
+                    <br></br>
+                    <label for="product_quantity"></label>
+                        <input style={{width: "89px", height: 40, padding: '0px 8px', border: '1px solid #8c8c8c', borderRadius: 4, backgroundColor: '#ffffff', backgroundSize: 'cover', font: 'Roboto', fontSize: 14, color: '#121212'}} defaultValue="1" min="1" id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
+                </form>
+                <div>
+                    <br></br>
+                    <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>${price[this.state.selectedPrice].toFixed(2)} USD</p>
+                    <Customadd style={{cursor: 'pointer'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
+                    <br></br>
+                </div>
 
-            
-            </form>
-            <div>
-              
-            <br></br>
-            <Customadd style={{cursor: 'pointer'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
-                
-            <br></br>
-            </div>
+                </div>
+            );
+        }
+        else{
+            return (
+                    <div>
+                        <form>
+                            <label for="product_quantity"></label>
+                                <input style={{width: "89px", height: 40, padding: '0px 8px', border: '1px solid #8c8c8c', borderRadius: 4, backgroundColor: '#ffffff', backgroundSize: 'cover', font: 'Roboto', fontSize: 14, color: '#121212'}} defaultValue="1" min="1" id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
+                        </form>
+                        <div>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <p style={{paddingTop: '15px', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>${price[this.state.selectedPrice].toFixed(2)} USD</p>
+                            <Customadd style={{cursor: 'pointer'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
+                            <br></br>
+                        </div>
+                    </div>
+                  );
 
-        </div>
-      );
+        }
+
     }
   }
   
