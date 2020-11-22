@@ -16,7 +16,6 @@ module.exports = {
         instagramLink: `https://instagram.com/`
     },
     plugins: [
-        
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-image`,
