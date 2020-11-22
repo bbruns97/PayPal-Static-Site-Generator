@@ -62,7 +62,7 @@ export default ({ children }) => {
           }
       })
   return (
-    <div css={css`margin: 0 auto; max-width: 700px;`}>
+    <div css={css`margin: 0 auto`}>
       <Header keywords={keywordsFound} siteTitle={data.site.siteMetadata.title} siteLogo={data.file.childImageSharp.fluid} cartCount="0"/>
       {children}
       <Footer />

@@ -8,7 +8,7 @@ export default function Cart() {
 
   if (isEmpty) 
   {
-    return <p>Your cart is empty</p>
+    return <p style={{fontFamily: 'Roboto', fontSize: '20px'}}>Your cart is empty</p>
   }
   else {
 

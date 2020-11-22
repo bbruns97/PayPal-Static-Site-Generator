@@ -60,10 +60,10 @@ export default  class PaypalComponent extends React.Component {
                     <label for="product_quantity"></label>
                         <input style={{width: "89px", height: 40, padding: '0px 8px', border: '1px solid #8c8c8c', borderRadius: 4, backgroundColor: '#ffffff', backgroundSize: 'cover', font: 'Roboto', fontSize: 14, color: '#121212'}} defaultValue="1" min="1" id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
                 </form>
-                <div>
+                <div css='button { border: none; } '>
                     <br></br>
-                    <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>${price[this.state.selectedPrice].toFixed(2)} USD</p>
-                    <Customadd style={{cursor: 'pointer'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
+                    <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>Total: ${this.state.value * (price[this.state.selectedPrice]).toFixed(2)} USD</p>
+                    <Customadd style={{cursor: 'pointer', border: '1px solid black'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
                     <br></br>
                 </div>
 
@@ -77,13 +77,13 @@ export default  class PaypalComponent extends React.Component {
                             <label for="product_quantity"></label>
                                 <input style={{width: "89px", height: 40, padding: '0px 8px', border: '1px solid #8c8c8c', borderRadius: 4, backgroundColor: '#ffffff', backgroundSize: 'cover', font: 'Roboto', fontSize: 14, color: '#121212'}} defaultValue="1" min="1" id={"quantity_"} type="number" placeholder="QUANTITY" name="product_quantity" onChange={this.handleChange}></input><br></br>
                         </form>
-                        <div>
+                        <div css='button { border: none; } '>
                             <br></br>
                             <br></br>
                             <br></br>
                             <br></br>
-                            <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>${price[this.state.selectedPrice].toFixed(2)} USD</p>
-                            <Customadd style={{cursor: 'pointer'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
+                            <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>Total: ${this.state.value * (price[this.state.selectedPrice]).toFixed(2)} USD</p>
+                            <Customadd style={{cursor: 'pointer', border: 'none'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
                             <br></br>
                         </div>
                     </div>
