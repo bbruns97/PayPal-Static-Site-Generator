@@ -1,4 +1,0 @@
-Address: 123 N Foo Way Tempe, AZ 85281
-Phone: 480-258-6485
-Hours: Tues-Sun: 6AM - 3PM. Closed Mondays
-
