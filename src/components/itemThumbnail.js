@@ -44,6 +44,7 @@ const LinkStyled = styled(Link)`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 10px;
 `
 
 const LinkStyledInactive = styled.div`
@@ -95,7 +96,8 @@ const itemThumbnail = (props) => {
                     <ImgStyled fluid={props.imageThumb} style={{maxWidth:'100%'}} />
                 </LinkStyled>
                 <ItemThumbnailInfo>
-                    <Header as="h4" content={props.heading} style={{paddingTop: '15px', height: "3.0em", fontSize: 28, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', textDecoration: 'none solid rgb(0, 0, 0)'}} />
+                <LinkStyled to={props.link}><Header as="h4" content={props.heading} style={{paddingTop: '15px', height: "3.0em", fontSize: 28, maxWidth: '100%', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', textOverflow: 'ellipsis', textDecoration: 'none solid rgb(0, 0, 0)'}} />
+                </LinkStyled>
                     <div style={{paddingRight: '20px', height: "3.2em", fontSize: 18, maxWidth: '100%', color: '#222222', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis', textDecoration: 'none solid rgb(34, 34, 34)'}} dangerouslySetInnerHTML={{ __html: props.exc }} />
                     <br></br>
                     {props.active === true &&

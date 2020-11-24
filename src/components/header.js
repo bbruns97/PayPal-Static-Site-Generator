@@ -61,7 +61,7 @@ const Header = ({ keywords, siteTitle, menuLinks, siteLogo, cartCount }) => (
               textDecoration: "none",
             }}
           >
-            {siteTitle}
+            {siteTitle.toUpperCase()}
           </Link>
         </h1>
         <div>

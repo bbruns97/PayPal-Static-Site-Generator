@@ -34,7 +34,7 @@ const Keys = ({ pageContext, data }) => {
     <Layout style={{margin: '0 auto'}}>
         
         <ThumbnailsWrapper style={{maxWidth: '700px'}} css='@media(max-width: 800px){.products_title {text-align: center;}}'>
-        <ProductsTitle className='products_title'>PRODUCTS</ProductsTitle>
+  <ProductsTitle className='products_title'>{key.toUpperCase()}</ProductsTitle>
             {edges.map(({ node }) => (
                 <div key={node.id} style={{margin: '10px auto'}}>
                     <ItemThumbnail exc={ node.excerpt } key={node.fields.slug} options={node.frontmatter.options} link={node.fields.slug} heading={node.frontmatter.title} price={node.frontmatter.price} imageThumb={node.frontmatter.image.childImageSharp.fluid} active={node.frontmatter.active}/>
