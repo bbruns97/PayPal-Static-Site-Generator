@@ -93,6 +93,7 @@ ItemsReturn()
 
  return(
   <Layout>
+    
     <CartTitle>
       MY CART
      
@@ -114,7 +115,10 @@ ItemsReturn()
     <OrderButton >
      
       <PaypalButton items={cartItemLists} total={cartTotal} itemAmounts = {myItemAmounts}/>
-     
+      <div id='confirmationMessage'></div>
+      {
+        // DO NOT REMOVE THE ABOVE LINE (118)
+      }
 
     </OrderButton>
     
