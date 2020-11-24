@@ -62,7 +62,7 @@ export default  class PaypalComponent extends React.Component {
                 </form>
                 <div css='button { border: none; } '>
                     <br></br>
-                    <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>Total: ${this.state.value * (price[this.state.selectedPrice]).toFixed(2)} USD</p>
+                    <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>Total: ${(this.state.value * price[this.state.selectedPrice]).toFixed(2)} USD</p>
                     <Customadd style={{cursor: 'pointer', border: '1px solid black'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
                     <br></br>
                 </div>
@@ -82,7 +82,7 @@ export default  class PaypalComponent extends React.Component {
                             <br></br>
                             <br></br>
                             <br></br>
-                            <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>Total: ${this.state.value * (price[this.state.selectedPrice]).toFixed(2)} USD</p>
+                            <p style={{textDecoration: 'none solid rgb(0, 0, 0)', width: 259, height: 22, font: 'Roboto', fontSize: 18, color: '#000000'}}>Total: ${(this.state.value * price[this.state.selectedPrice]).toFixed(2)} USD</p>
                             <Customadd style={{cursor: 'pointer', border: 'none'}} price={price[this.state.selectedPrice]} id= {id} title = {title}  option ={this.state.selectedOption}  amount={this.state.value} imageThumb ={imageThumb}/>
                             <br></br>
                         </div>
