@@ -2,7 +2,7 @@
 title: Chocolate Cake
 price: [15.00, 23.00]
 image: "./chocolate-cake.jpg"
-keyword: Cake
+keyword: TEST
 options: [No Customization,Custom Message]
 enabled: true
 active: true
