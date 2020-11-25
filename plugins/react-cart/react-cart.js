@@ -214,10 +214,11 @@ export function CartProvider({
     onItemRemove && onItemRemove(id);
   };
 
-  const emptyCart = () =>
+  const emptyCart = () =>{
     dispatch({
       type: EMPTY_CART,
-    });
+    })
+  };
 
   const getItem = (id) => state.items.find((i) => i.id === id);
 

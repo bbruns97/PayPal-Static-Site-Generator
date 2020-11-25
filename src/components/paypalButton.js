@@ -10,9 +10,11 @@ import { useCart } from '../../plugins/react-cart/react-cart';
 
 
 
-export default class PaypalButton extends React.Component  {
-	render(){
-	const { items, total, itemAmounts } = this.props;
+export default function PaypalButton(props)  {
+
+	const { emptyCart } = useCart()
+	
+	const { items, total, itemAmounts } = props;
 	var itemsString = []
 	var count;	
 	if (items != null){
@@ -45,8 +47,9 @@ export default class PaypalButton extends React.Component  {
 		const onSuccess = (payment) => {
 			 
 			window.location.replace("/orderConfirmation");
-
-            console.log("Payment successful!", payment);
+			
+			console.log("Payment successful!", payment);
+			emptyCart()
             	
 		}
 
@@ -95,4 +98,4 @@ export default class PaypalButton extends React.Component  {
         );
     }
 
-}
+
