@@ -1,0 +1,16 @@
+{
+    "title": "Acme Bakery",
+    "address": "9852 N Acme Way Tempe, AZ 85281",
+    "phoneNumber": "(480)-453-8754",
+    "email": "bakery@example.com",
+    "twitterLink": "https://twitter.com/",
+    "facebookLink": "https://facebook.com/",
+    "instagramLink": "https://instagram.com/",
+    "mondayHours": "5:00 AM - 4:30 PM",
+    "tuesdayHours": "5:00 AM - 4:30 PM",
+    "wednesdayHours": "5:00 AM - 4:30 PM",
+    "thursdayHours": "5:00 AM - 4:30 PM",
+    "fridayHours": "5:00 AM - 4:30 PM",
+    "saturdayHours": "5:00 AM - 4:30 PM",
+    "sundayHours": "5:00 AM - 4:30 PM"
+}
