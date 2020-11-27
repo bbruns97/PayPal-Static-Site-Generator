@@ -7,6 +7,7 @@ import Footer from "./footer"
 import Header from "./header"
 import 'semantic-ui-css/semantic.min.css'
 
+var config = require('./headerFooterInformation.json');
 
 const LogoStyled = styled(Img)`
     width: 50px;
@@ -63,7 +64,7 @@ export default ({ children }) => {
       })
   return (
     <div css={css`margin: 0 auto`}>
-      <Header keywords={keywordsFound} siteTitle={data.site.siteMetadata.title} siteLogo={data.file.childImageSharp.fluid} cartCount="0"/>
+      <Header keywords={keywordsFound} siteTitle={config.title} siteLogo={data.file.childImageSharp.fluid} cartCount="0"/>
       {children}
       <Footer />
     </div >
