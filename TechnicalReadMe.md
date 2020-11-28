@@ -37,7 +37,7 @@ https://www.gatsbyjs.com/tutorial/part-zero/#familiarize-yourself-with-the-comma
 
 Repository files: pages, components, and plugins can be developed using your preferred IDE or text editor for JavaScript.
 
-Steps:
+>Steps:
 > 1. Install Node.js
 > 2. Install Git
 > 3. Install Gatsby (ver. 2.24+)
@@ -47,8 +47,24 @@ Steps:
 
 <br/>
 
-## Generating a Website
+## Personalizing and Generating a Website
 
+### Presentation
+A quick guide to personalizing your generated website can be found here: https://youtu.be/tK650hrJKSk.
+>Steps:
+> 1. Navigate to the project directory
+> 2. Fill out gatsby-config.js.
+> 3. Enter `/src/content`
+> 4. Create own products using examples as a template.
+> 5. Place images into `/src/images`
+
+### Generation
+>Steps
+> 1. Open PowerShell, Terminal, etc.
+> 2. Navigate to the project directory
+> 3. Run Gatsby command: `gatsby build`
+> 4. Receive website files generated from personalized markdown files.
+> Generated website files will be located within `/public/`
 
 <br/>
 
@@ -273,10 +289,6 @@ The PayPal button generated from the component: 'paypalButton.js'
 Creates a PayPal purchase button which receives price and information from 'react-cart' and creates a call to PayPal's API to process a purchase. Options on the PayPal receipt is also determined within this function.
 
 ---
-### File Structure
-...
-
----
 ### Markdown Back-End
 All information displayed in the store page and product pages are derived from the content markdown files. Our custom markdown keywords:
 
@@ -325,6 +337,6 @@ All information displayed in the store page and product pages are derived from t
 **8. 'gatsby-remark-copy-linked-files'**
 > https://www.gatsbyjs.com/plugins/gatsby-remark-copy-linked-files/
 
-<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> 
 
 >Documentation by: Sonny Huynh
