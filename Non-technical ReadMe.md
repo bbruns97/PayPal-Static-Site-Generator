@@ -83,6 +83,8 @@ options: (The option[s] for the product)
 
 11. View the new item you have added at "localhost:8000/" in your web browser!
 
+12. Your static files should be in the "public" folder located in the [project file location]/public
+
 ## DELETING ITEMS:-
 
 1. Using your file explorer of choice, navigate to the file location of the project.
@@ -101,6 +103,8 @@ options: (The option[s] for the product)
     Enter the command "gatsby develop"
 
 7. View the change (deletion) you have made at "localhost:8000/" in your web browser!
+
+8. Your static files should be in the "public" folder located in the [project file location]/public
 
 ## CHANGING WEBSITE PATH NAMES:-
 
@@ -122,6 +126,8 @@ For instance, renaming "cake" in the file explorer will change the subsequent pa
     Enter the command "gatsby develop"
 
 6. View the change to the webpath you have made at "localhost:8000/" in your web browser!
+
+7. Your static files should be in the "public" folder located in the [project file location]/public
 
 ## CHANGING INFORMATION IN THE HEADER AND/OR FOOTER:-
 
@@ -151,3 +157,4 @@ For instance, renaming "cake" in the file explorer will change the subsequent pa
 
 9. View the changes you have made at "localhost:8000/" in your web browser!
 
+10. Your static files should be in the "public" folder located in the [project file location]/public
