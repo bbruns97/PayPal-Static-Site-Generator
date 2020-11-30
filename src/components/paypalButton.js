@@ -30,7 +30,7 @@ export default function PaypalButton(props)  {
 					"quantity": itemAmounts[count],
 					"price": items[count].price, 
 					"tax": "",
-					"sku": "1",
+					"sku": items[count].options,
 					"currency": "USD",
 					}
 				
@@ -92,6 +92,7 @@ export default function PaypalButton(props)  {
 						  "description": "",
 						  "item_list": {
 							"items":itemsString
+							
 						  }
 						}
 					  ]} } shipping = { 2 } client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
