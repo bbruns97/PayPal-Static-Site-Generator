@@ -6,15 +6,7 @@
 
 module.exports = {
     pathPrefix: "/PayPal-Static-Site-Generator/",
-    siteMetadata: {
-        title: `Acme Bakery`,
-        address: `9852 N Acme Way Tempe, AZ 85281`,
-        phoneNumber: `(480)-453-8754`,
-        email: `bakery@example.com`,
-        twitterLink: `https://twitter.com/`,
-        facebookLink: `https://facebook.com/`,
-        instagramLink: `https://instagram.com/`
-    },
+
     plugins: [
         `gatsby-plugin-styled-components`,
         `gatsby-transformer-sharp`,
