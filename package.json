@@ -29,7 +29,7 @@
     "gatsby-remark-normalize-paths": "^1.1.0",
     "gatsby-remark-relative-images": "^0.3.0",
     "gatsby-source-filesystem": "^2.6.1",
-    "gatsby-transformer-remark": "^2.11.1",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.20",
     "react": "^16.14.0",
     "react-async-script-loader": "^0.3.0",
